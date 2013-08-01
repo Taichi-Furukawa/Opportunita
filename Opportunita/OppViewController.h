@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OppViewController : UIViewController
+@property(retain,nonatomic)NSString *Subject;
 
 @end

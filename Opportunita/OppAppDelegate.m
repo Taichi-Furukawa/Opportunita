@@ -9,13 +9,58 @@
 #import "OppAppDelegate.h"
 
 @implementation OppAppDelegate
-
+BOOL login;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    NSUserDefaults *user_def = [NSUserDefaults standardUserDefaults];
+    login=[user_def boolForKey:@"LoginState"];
+    if (login==NO) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound| UIRemoteNotificationTypeAlert)];
+    }else{
+
+    }
+
     return YES;
 }
-							
+
+- (void)application:(UIApplication*)app didFailToRegisterForRemoteNotificationsWithError:(NSError*)err{
+	NSLog(@"Errorinregistration.Error:%@",err);
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    NSString *Token = [[[[devToken description] stringByReplacingOccurrencesOfString:@"<"withString:@""]
+                        stringByReplacingOccurrencesOfString:@">" withString:@""]
+                       stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSLog(@"deletoken=%@",Token);
+    
+    OppConnection *loginConnection=[OppConnection instance];
+    [loginConnection login_and_DeviceToken:Token];
+    
+}
+
+-(void)ReceiveData:(NSString *)responce{
+    NSLog(@"spada!%@",responce);
+    if([responce isEqualToString:@"cantlogin"]==YES){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"エラー発生"
+                                  message:@"サーバー管理者に問い合わせて下さい" delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil
+                                  ];
+        [alertView show];
+
+    }else{
+        NSUserDefaults *user_def = [NSUserDefaults standardUserDefaults];
+        [user_def setObject:responce forKey:@"My_user_ID"];
+        [user_def setBool:YES forKey:@"LoginState"];
+    }
+    
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
