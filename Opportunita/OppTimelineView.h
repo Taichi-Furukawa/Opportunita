@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OppConnection.h"
+@interface OppTimelineView : UIViewController<OppDelegate>{
+    
+}
 
-@interface OppViewController : UIViewController
 @property(retain,nonatomic)NSString *Subject;
 
 @end

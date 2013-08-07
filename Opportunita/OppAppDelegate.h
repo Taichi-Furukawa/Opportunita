@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "OppConnection.h"
-@interface OppAppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface OppAppDelegate : UIResponder <UIApplicationDelegate,OppDelegate>{
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

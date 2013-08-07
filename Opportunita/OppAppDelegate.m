@@ -7,6 +7,7 @@
 //
 
 #import "OppAppDelegate.h"
+#import "OppTimelineView.h"
 
 @implementation OppAppDelegate
 BOOL login;
@@ -19,7 +20,7 @@ BOOL login;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound| UIRemoteNotificationTypeAlert)];
     }else{
-
+        NSLog(@"%@",[user_def stringForKey:@"My_user_ID"]);
     }
 
     return YES;
@@ -37,12 +38,13 @@ BOOL login;
     NSLog(@"deletoken=%@",Token);
     
     OppConnection *loginConnection=[OppConnection instance];
+    loginConnection.deleagte=self;
     [loginConnection login_and_DeviceToken:Token];
+    
     
 }
 
 -(void)ReceiveData:(NSString *)responce{
-    NSLog(@"spada!%@",responce);
     if([responce isEqualToString:@"cantlogin"]==YES){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"エラー発生"
@@ -56,6 +58,11 @@ BOOL login;
         NSUserDefaults *user_def = [NSUserDefaults standardUserDefaults];
         [user_def setObject:responce forKey:@"My_user_ID"];
         [user_def setBool:YES forKey:@"LoginState"];
+        
+        UIStoryboard *storyboard = [[[self window]rootViewController]storyboard];
+        OppTimelineView *segu =[[OppTimelineView alloc]init];
+        segu=[storyboard instantiateViewControllerWithIdentifier:@"TimelineView"];
+        self.window.rootViewController=segu;
     }
     
 }

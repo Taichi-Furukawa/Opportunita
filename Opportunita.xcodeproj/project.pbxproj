@@ -15,7 +15,7 @@
 		08212449178582FD0097AA0F /* OppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212448178582FD0097AA0F /* OppAppDelegate.m */; };
 		0821244C178582FD0097AA0F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0821244A178582FD0097AA0F /* Main_iPhone.storyboard */; };
 		0821244F178582FD0097AA0F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0821244D178582FD0097AA0F /* Main_iPad.storyboard */; };
-		08212452178582FD0097AA0F /* OppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212451178582FD0097AA0F /* OppViewController.m */; };
+		08212452178582FD0097AA0F /* OppTimelineVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212451178582FD0097AA0F /* OppTimelineVIew.m */; };
 		08212454178582FE0097AA0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08212453178582FE0097AA0F /* Images.xcassets */; };
 		0821245B178582FE0097AA0F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0821245A178582FE0097AA0F /* XCTest.framework */; };
 		0821245C178582FE0097AA0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08212438178582FD0097AA0F /* Foundation.framework */; };
@@ -50,8 +50,8 @@
 		08212448178582FD0097AA0F /* OppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OppAppDelegate.m; sourceTree = "<group>"; };
 		0821244B178582FD0097AA0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0821244E178582FD0097AA0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		08212450178582FD0097AA0F /* OppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OppViewController.h; sourceTree = "<group>"; };
-		08212451178582FD0097AA0F /* OppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OppViewController.m; sourceTree = "<group>"; };
+		08212450178582FD0097AA0F /* OppTimelineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OppTimelineView.h; sourceTree = "<group>"; };
+		08212451178582FD0097AA0F /* OppTimelineVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OppTimelineVIew.m; sourceTree = "<group>"; };
 		08212453178582FE0097AA0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		08212459178582FE0097AA0F /* OpportunitaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpportunitaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0821245A178582FE0097AA0F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -126,8 +126,8 @@
 				08212448178582FD0097AA0F /* OppAppDelegate.m */,
 				0821244A178582FD0097AA0F /* Main_iPhone.storyboard */,
 				0821244D178582FD0097AA0F /* Main_iPad.storyboard */,
-				08212450178582FD0097AA0F /* OppViewController.h */,
-				08212451178582FD0097AA0F /* OppViewController.m */,
+				08212450178582FD0097AA0F /* OppTimelineView.h */,
+				08212451178582FD0097AA0F /* OppTimelineVIew.m */,
 				08212453178582FE0097AA0F /* Images.xcassets */,
 				0821243F178582FD0097AA0F /* Supporting Files */,
 			);
@@ -280,7 +280,7 @@
 				08212449178582FD0097AA0F /* OppAppDelegate.m in Sources */,
 				08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */,
 				08212445178582FD0097AA0F /* main.m in Sources */,
-				08212452178582FD0097AA0F /* OppViewController.m in Sources */,
+				08212452178582FD0097AA0F /* OppTimelineVIew.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +418,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Opportunita/Opportunita-Prefix.pch";
 				INFOPLIST_FILE = "Opportunita/Opportunita-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -432,7 +434,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Opportunita/Opportunita-Prefix.pch";
 				INFOPLIST_FILE = "Opportunita/Opportunita-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

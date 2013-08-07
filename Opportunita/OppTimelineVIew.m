@@ -6,17 +6,19 @@
 //  Copyright (c) 2013年 古川 泰地. All rights reserved.
 //
 
-#import "OppViewController.h"
+#import "OppTimelineView.h"
 
-@interface OppViewController ()
+@interface OppTimelineView ()
 
 @end
 
-@implementation OppViewController
+@implementation OppTimelineView
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
