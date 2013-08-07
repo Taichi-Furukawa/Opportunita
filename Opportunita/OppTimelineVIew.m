@@ -22,6 +22,25 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(IBAction)reloadAction:(UIButton*)sender{
+    OppConnection *GetTimeLines=[OppConnection instance];
+    GetTimeLines.deleagte=self;
+    [GetTimeLines get_Timeline];
+    
+}
+
+-(void)ReceiveData:(NSString *)responce{
+    NSError *err;
+    NSDictionary *jsonTimeline=[NSJSONSerialization JSONObjectWithData:[responce dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&err];
+    
+    NSLog(@"%@",jsonTimeline);
+}
+
+-(void)Draw_A_TimeLine:(NSDictionary*)jsonTimeLine{
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

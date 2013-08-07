@@ -18,6 +18,7 @@
 }
 +(id)instance;
 -(void)login_and_DeviceToken:(NSString*)devicetoken;
+-(void)get_Timeline;
 -(void)logOut;
 
 @property(assign,nonatomic) id <OppDelegate> deleagte;

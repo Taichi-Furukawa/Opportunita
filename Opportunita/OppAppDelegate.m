@@ -59,10 +59,12 @@ BOOL login;
         [user_def setObject:responce forKey:@"My_user_ID"];
         [user_def setBool:YES forKey:@"LoginState"];
         
+        /*
         UIStoryboard *storyboard = [[[self window]rootViewController]storyboard];
         OppTimelineView *segu =[[OppTimelineView alloc]init];
         segu=[storyboard instantiateViewControllerWithIdentifier:@"TimelineView"];
         self.window.rootViewController=segu;
+         */
     }
     
 }

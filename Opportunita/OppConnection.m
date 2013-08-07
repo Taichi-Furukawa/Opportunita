@@ -33,9 +33,22 @@ BOOL login;
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
     [request setHTTPShouldHandleCookies:YES];
     connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
-
     
 }
+
+-(void)get_Timeline{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=getTimeline"];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+    
+}
+
 
 -(void)logOut{
     
@@ -54,8 +67,8 @@ BOOL login;
 -(void)connection:( NSURLConnection *) connection didReceiveData:( NSData *) resdata{
     responceString = [[NSString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
     NSLog(@"res=%@",responceString);
-    
     [deleagte ReceiveData:responceString];
+    connect=nil;
 }
 
 
