@@ -20,6 +20,7 @@
 -(void)login_and_DeviceToken:(NSString*)devicetoken;
 -(void)get_Timeline;
 -(void)logOut;
+-(void)send_Subject:(NSString*)IncertSubject MyUserID:(NSString*)user_ID;
 
 @property(assign,nonatomic) id <OppDelegate> deleagte;
 @property(retain,nonatomic)NSURLConnection *connect;

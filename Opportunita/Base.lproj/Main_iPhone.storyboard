@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="1072" y="-746"/>
         </scene>
-        <!--View Controller-->
+        <!--Opp Subject Post View Controller-->
         <scene sceneID="npC-PZ-11g">
             <objects>
-                <viewController id="g6f-yV-q7y" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g6f-yV-q7y" customClass="OppSubjectPostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0wg-O5-bdc"/>
                         <viewControllerLayoutGuide type="bottom" id="Aq9-Gb-WZb"/>
@@ -112,13 +112,27 @@
                                                 <segue destination="K6R-DA-IFl" kind="modal" modalTransitionStyle="crossDissolve" id="pfe-oA-fq9"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="2vd-JQ-q6y"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="2vd-JQ-q6y">
+                                            <connections>
+                                                <action selector="PostBtn:" destination="g6f-yV-q7y" id="cm7-xE-PVP"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem " translatesAutoresizingMaskIntoConstraints="NO" id="IOU-fW-jMt">
+                                <rect key="frame" x="0.0" y="63" width="320" height="505"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="InsertText" destination="IOU-fW-jMt" id="0wF-xE-GWl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="na1-kG-Blu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,6 +145,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XJx-3N-8Pv"/>
+        <segue reference="pfe-oA-fq9"/>
     </inferredMetricsTieBreakers>
 </document>
