@@ -49,6 +49,19 @@ BOOL login;
     
 }
 
+-(void)send_Subject:(NSString*)IncertSubject MyUserID:(NSString*)user_ID{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=TopicsPost&topics=%@&User_ID=%@",IncertSubject,user_ID];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+    
+}
+
 
 -(void)logOut{
     
@@ -67,7 +80,7 @@ BOOL login;
 -(void)connection:( NSURLConnection *) connection didReceiveData:( NSData *) resdata{
     responceString = [[NSString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
     NSLog(@"res=%@",responceString);
-    [deleagte ReceiveData:responceString];
+    [deleagte ReceiveData:[responceString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
     connect=nil;
 }
 
