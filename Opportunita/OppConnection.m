@@ -79,7 +79,7 @@ BOOL login;
 
 -(void)connection:( NSURLConnection *) connection didReceiveData:( NSData *) resdata{
     responceString = [[NSString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
-    NSLog(@"res=%@",responceString);
+    //NSLog(@"res=%@",responceString);
     [deleagte ReceiveData:[responceString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
     connect=nil;
 }
