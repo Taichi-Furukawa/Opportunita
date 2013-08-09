@@ -16,6 +16,13 @@
 
 - (void)viewDidLoad
 {
+    /*
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingString:@"test.json"];
+    NSArray *jsonArr=[NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    //NSLog(@"%@",jsonArr);
+    */
+    
     [super viewDidLoad];
     
 
@@ -32,6 +39,11 @@
 -(void)ReceiveData:(NSString *)responce{
     NSError *err;
     NSDictionary *jsonTimeline=[NSJSONSerialization JSONObjectWithData:[responce dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&err];
+    /*
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingString:@"test.json"];
+    [NSKeyedArchiver archiveRootObject:jsonTimeline toFile:filePath];
+    */
     
     NSLog(@"%@",jsonTimeline);
 }
