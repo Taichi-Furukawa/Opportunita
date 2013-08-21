@@ -14,18 +14,18 @@
 @end
 
 @implementation OppTimelineView
-@synthesize TimeLineTable,refreshControl,jsonTimeLine,ToolBar;
+@synthesize TimeLineTable,refreshControl,ToolBar;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     timeLine=[NSMutableArray array];
+    
+    NSArray *ArchiveArr=[NSArray new];
     NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString *filePath = [directory stringByAppendingPathComponent:@"timeline.json"];
-    jsonTimeLine=[NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    
-    
-    [self Draw_A_TimeLine:jsonTimeLine];
+    NSString *filePath = [directory stringByAppendingPathComponent:@"timeline.arr"];
+    ArchiveArr=[NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    timeLine=[NSMutableArray arrayWithArray:ArchiveArr];
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadAction)forControlEvents:UIControlEventValueChanged];
@@ -36,9 +36,10 @@
     TimeLineTable.dataSource=self;
     ToolBar.translucent=YES;
 
-    if (!jsonTimeLine) {
-    [self reloadAction];
+    if([timeLine count]==0){
+        [self reloadAction];
     }
+//    [TimeLineTable reloadData];
 
 }
 
@@ -46,38 +47,54 @@
     [self reloadAction];
 }
 
+
 -(void)reloadAction{
-    OppConnection *GetTimeLines=[OppConnection instance];
+    OppConnection *GetTimeLines=[[OppConnection alloc]init];
     GetTimeLines.deleagte=self;
     [GetTimeLines get_Timeline];
-    
 }
 
 -(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
+    
+    NSArray *jsonTimeLine=[[NSArray alloc]init];
     responce=[responce stringByReplacingOccurrencesOfString:@"	" withString:@" "];
+        responce=[responce stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     responce =[responce stringByTrimmingCharactersInSet:[NSCharacterSet controlCharacterSet]];
     NSError *err;
     jsonTimeLine=[NSJSONSerialization JSONObjectWithData:[responce dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
-
-    NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString *filePath = [directory stringByAppendingPathComponent:@"timeline.json"];
-    [NSKeyedArchiver archiveRootObject:jsonTimeLine toFile:filePath];
+    NSLog(@"%@",err);
     
-    [self Draw_A_TimeLine:jsonTimeLine];
-    
-}
-
--(void)Draw_A_TimeLine:(NSArray*)jsonS{
-    [refreshControl endRefreshing];
-    for (NSDictionary *obj in jsonS) {
-        OppTimeLineCell *TimeLineCell=[OppTimeLineCell initTimeLineCell];
-        TimeLineCell.subjectlabel.text=[obj objectForKey:@"Subject"];
-        TimeLineCell.topicsID=[obj objectForKey:@"Topics_ID"];
-        [timeLine addObject:TimeLineCell];
+    NSMutableArray *refreshArr=[NSMutableArray array];
+    int diff=[jsonTimeLine count]-[timeLine count];
+    int index=0;
+    for (NSDictionary *obj in jsonTimeLine) {
+        OppTimeLineCell *addTimeLineCell=[OppTimeLineCell initTimeLineCell];
+        addTimeLineCell.subjectlabel.text=[obj objectForKey:@"Subject"];
+        addTimeLineCell.topicsID=[obj objectForKey:@"Topics_ID"];
+        if (index<diff) {
+            [timeLine insertObject:addTimeLineCell atIndex:index];
+        }
+        index++;
+    }
+    //int diff=[refreshArr count]-[timeLine count];
+    NSLog(@"diff=%d",diff);
+    for (int i=[refreshArr count]-diff;i<[refreshArr count];i++) {
+        NSLog(@"loop=%d",i);
+        OppTimeLineCell *Cell=[OppTimeLineCell initTimeLineCell];
+        Cell=[refreshArr objectAtIndex:i];
+        [timeLine addObject:Cell];
+        
     }
     
+    [refreshControl endRefreshing];
     
     [TimeLineTable reloadData];
+    NSArray *ArchiveArr=[NSArray new];
+    ArchiveArr=[timeLine copy];
+    NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *filePath = [directory stringByAppendingPathComponent:@"timeline.arr"];
+    [NSKeyedArchiver archiveRootObject:ArchiveArr toFile:filePath];
+
     
 }
 
@@ -88,13 +105,9 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"loading!");
-    //OppTimeLineCell *TimeLineCell=[[OppTimeLineCell alloc]init];
-    /*
-    OppTimeLineCell *TimeLineCell=[OppTimeLineCell initTimeLineCell];
-    TimeLineCell.subjectlabel.text=[[jsonTimeLine objectAtIndex:indexPath.row] objectForKey:@"Subject"];
-    TimeLineCell.topicsID=[[jsonTimeLine objectAtIndex:indexPath.row] objectForKey:@"Topics_ID"];
-    */
+    
     OppTimeLineCell *Cell=[OppTimeLineCell initTimeLineCell];
+    
     Cell=[timeLine objectAtIndex:indexPath.row];
     
     return Cell;
@@ -106,8 +119,6 @@
     
     return 111.0;
 }
-
-
 
 
 - (void)didReceiveMemoryWarning

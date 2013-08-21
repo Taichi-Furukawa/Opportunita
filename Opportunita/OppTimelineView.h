@@ -14,7 +14,6 @@
 
 @property(retain,nonatomic)IBOutlet UITableView *TimeLineTable;
 @property(retain,nonatomic)UIRefreshControl* refreshControl;
-@property(retain,nonatomic)NSArray *jsonTimeLine;
 @property(retain,nonatomic)IBOutlet UIToolbar *ToolBar;
 
 @end

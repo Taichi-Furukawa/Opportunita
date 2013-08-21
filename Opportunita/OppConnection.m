@@ -38,6 +38,7 @@ BOOL login;
 }
 
 -(void)get_Timeline{
+    
     Method_name=@"get_Timeline";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *loginStr=[NSString stringWithFormat:@"disposal=getTimeline"];
@@ -114,6 +115,7 @@ BOOL login;
 }
 
 -(void)connection:( NSURLConnection *) connection didReceiveData:( NSData *) resdata{
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     responceString = [[NSString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
     NSLog(@"res=%@",responceString);
