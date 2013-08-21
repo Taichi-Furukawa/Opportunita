@@ -10,17 +10,20 @@
 
 @protocol OppDelegate <NSObject>
 @optional
--(void)ReceiveData:(NSString*)responce;
+-(void)ReceiveData:(NSString*)responce Method:(NSString*)method_name;
 @end
 
 @interface OppConnection : NSData{
     id <OppDelegate> delegate;
+    NSString *Method_name;
 }
 +(id)instance;
 -(void)login_and_DeviceToken:(NSString*)devicetoken;
 -(void)get_Timeline;
 -(void)logOut;
 -(void)send_Subject:(NSString*)IncertSubject MyUserID:(NSString*)user_ID;
+-(void)favorite_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID;
+-(void)join_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID;
 
 @property(assign,nonatomic) id <OppDelegate> deleagte;
 @property(retain,nonatomic)NSURLConnection *connect;

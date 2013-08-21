@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "OppConnection.h"
-@interface OppTimelineView : UIViewController<OppDelegate>{
-    
+@interface OppTimelineView : UIViewController<OppDelegate,UITableViewDelegate,UITableViewDataSource>{
+    NSMutableArray *timeLine;
 }
 
-@property(retain,nonatomic)NSString *Subject;
+@property(retain,nonatomic)IBOutlet UITableView *TimeLineTable;
+@property(retain,nonatomic)UIRefreshControl* refreshControl;
+@property(retain,nonatomic)NSArray *jsonTimeLine;
+@property(retain,nonatomic)IBOutlet UIToolbar *ToolBar;
 
 @end

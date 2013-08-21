@@ -22,6 +22,8 @@
 		0821245D178582FE0097AA0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0821243C178582FD0097AA0F /* UIKit.framework */; };
 		08212465178582FE0097AA0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08212463178582FE0097AA0F /* InfoPlist.strings */; };
 		08212467178582FE0097AA0F /* OpportunitaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212466178582FE0097AA0F /* OpportunitaTests.m */; };
+		089969E417B4E0A200E7B7B7 /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */; };
+		089969E717B4E42F00E7B7B7 /* OppTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 089969E617B4E42F00E7B7B7 /* OppTimeLineCell.m */; };
 		08A1962F17B49F9D00799B58 /* OppSubjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */; };
 		08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
 		08A3769C178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
@@ -61,6 +63,9 @@
 		08212462178582FE0097AA0F /* OpportunitaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpportunitaTests-Info.plist"; sourceTree = "<group>"; };
 		08212464178582FE0097AA0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08212466178582FE0097AA0F /* OpportunitaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpportunitaTests.m; sourceTree = "<group>"; };
+		089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineCell.xib; sourceTree = "<group>"; };
+		089969E517B4E42F00E7B7B7 /* OppTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppTimeLineCell.h; sourceTree = "<group>"; };
+		089969E617B4E42F00E7B7B7 /* OppTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppTimeLineCell.m; sourceTree = "<group>"; };
 		08A1962D17B49F9D00799B58 /* OppSubjectPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppSubjectPostViewController.h; sourceTree = "<group>"; };
 		08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppSubjectPostViewController.m; sourceTree = "<group>"; };
 		08A37699178EB3BF00E1BD9A /* OppConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppConnection.h; sourceTree = "<group>"; };
@@ -177,7 +182,10 @@
 		08A3769D178EB40E00E1BD9A /* OppSupport */ = {
 			isa = PBXGroup;
 			children = (
+				089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */,
 				08A3769E178EB6E100E1BD9A /* SharedData.h */,
+				089969E517B4E42F00E7B7B7 /* OppTimeLineCell.h */,
+				089969E617B4E42F00E7B7B7 /* OppTimeLineCell.m */,
 				08A3769F178EB6E100E1BD9A /* SharedData.m */,
 				08A37699178EB3BF00E1BD9A /* OppConnection.h */,
 				08A3769A178EB3BF00E1BD9A /* OppConnection.m */,
@@ -265,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				089969E417B4E0A200E7B7B7 /* TimeLineCell.xib in Resources */,
 				0821244F178582FD0097AA0F /* Main_iPad.storyboard in Resources */,
 				08212454178582FE0097AA0F /* Images.xcassets in Resources */,
 				0821244C178582FD0097AA0F /* Main_iPhone.storyboard in Resources */,
@@ -289,6 +298,7 @@
 			files = (
 				08A376A0178EB6E100E1BD9A /* SharedData.m in Sources */,
 				08212449178582FD0097AA0F /* OppAppDelegate.m in Sources */,
+				089969E717B4E42F00E7B7B7 /* OppTimeLineCell.m in Sources */,
 				26B1D29517B4ABB80023F5DA /* OppViewController.m in Sources */,
 				08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */,
 				08212445178582FD0097AA0F /* main.m in Sources */,

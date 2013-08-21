@@ -44,7 +44,7 @@ BOOL login;
     
 }
 
--(void)ReceiveData:(NSString *)responce{
+-(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
     if([responce isEqualToString:@"cantlogin"]==YES){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"エラー発生"

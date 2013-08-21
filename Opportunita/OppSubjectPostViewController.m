@@ -49,7 +49,7 @@
     }
     
 }
--(void)ReceiveData:(NSString *)responce{
+-(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
 
         [InsertText resignFirstResponder];
     if ([responce isEqualToString:@"ok"]==YES) {

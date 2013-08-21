@@ -23,11 +23,12 @@ BOOL login;
 }
 
 -(void)login_and_DeviceToken:(NSString*)devicetoken{
-    
+    Method_name=@"login_and_DeviceToken";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *loginStr=[NSString stringWithFormat:@"disposal=login&devicetoken=%@",devicetoken];
     NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/login.php"];
     request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
     request.HTTPMethod=@"POST";
     request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
@@ -37,10 +38,42 @@ BOOL login;
 }
 
 -(void)get_Timeline{
+    Method_name=@"get_Timeline";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *loginStr=[NSString stringWithFormat:@"disposal=getTimeline"];
     NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
     request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+    
+}
+
+-(void)favorite_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID{
+    Method_name=@"Fav";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=Fav&Topics_ID=%@&User_ID=%@",Topics_ID,user_ID];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+    
+}
+
+-(void)join_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID{
+    Method_name=@"Join";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=Join&Topics_ID=%@&User_ID=%@",Topics_ID,user_ID];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
     request.HTTPMethod=@"POST";
     request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
@@ -50,10 +83,12 @@ BOOL login;
 }
 
 -(void)send_Subject:(NSString*)IncertSubject MyUserID:(NSString*)user_ID{
+    Method_name=@"send_Subject";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *loginStr=[NSString stringWithFormat:@"disposal=TopicsPost&topics=%@&User_ID=%@",IncertSubject,user_ID];
     NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
     request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
     request.HTTPMethod=@"POST";
     request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
@@ -68,6 +103,7 @@ BOOL login;
 }
 
 -(void)connection:(NSURLConnection *)conn didReceiveResponse:(NSURLResponse *)res{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     /*
     NSLog(@"expectedContentLength:%lld",[res expectedContentLength]);
     NSLog(@"MIMEType:%@",[res MIMEType]);
@@ -78,9 +114,10 @@ BOOL login;
 }
 
 -(void)connection:( NSURLConnection *) connection didReceiveData:( NSData *) resdata{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     responceString = [[NSString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
-    //NSLog(@"res=%@",responceString);
-    [deleagte ReceiveData:[responceString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
+    NSLog(@"res=%@",responceString);
+    [deleagte ReceiveData:[responceString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]] Method:Method_name];
     connect=nil;
 }
 
