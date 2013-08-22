@@ -10,6 +10,8 @@
 #import "OppConnection.h"
 @interface OppTimelineView : UIViewController<OppDelegate,UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray *timeLine;
+    NSMutableArray *favLiat_Array;
+    NSMutableArray *joinList_Array;
 }
 
 @property(retain,nonatomic)IBOutlet UITableView *TimeLineTable;

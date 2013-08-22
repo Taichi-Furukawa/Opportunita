@@ -28,27 +28,38 @@
 }
 
 - (void)favorite:(UIButton*)fav{
+    NSUserDefaults *favList=[NSUserDefaults standardUserDefaults];
+    NSMutableArray *favArray=[NSMutableArray arrayWithArray:[favList objectForKey:@"fav_list"]];
+    
     NSLog(@"%@",topicsID);
     OppConnection *FavTopics=[[OppConnection alloc]init];
     FavTopics.deleagte=self;
     [FavTopics favorite_Topics:topicsID MyUserID:MyUserID];
+    [favbutton setEnabled:NO];
+    
+    [favArray addObject:topicsID];
+    [favList setObject:[favArray copy] forKey:@"fav_list"];
 }
 
 - (void)join:(UIButton*)join{
+    
+    NSUserDefaults *joinList=[NSUserDefaults standardUserDefaults];
+    NSMutableArray *JoinArray=[NSMutableArray arrayWithArray:[joinList objectForKey:@"join_list"]];
+    
     OppConnection *JoinTopics=[[OppConnection alloc]init];
     JoinTopics.deleagte=self;
     [JoinTopics join_Topics:topicsID MyUserID:MyUserID];
+    [Joinbutton setEnabled:NO];
+    
+    [JoinArray addObject:topicsID];
+    [joinList setObject:[JoinArray copy] forKey:@"join_list"];
     
 }
 
 -(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
     if ([responce isEqualToString:@"ok"]==YES && [method_name isEqualToString:@"Fav"]==YES) {
-        [favbutton setEnabled:NO];
     }else{
-        [Joinbutton setEnabled:NO];
     }
-
-    
 }
 
 +(id)initTimeLineCell{

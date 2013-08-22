@@ -21,12 +21,13 @@
     [super viewDidLoad];
     timeLine=[NSMutableArray array];
     
+    /*
     NSArray *ArchiveArr=[NSArray new];
     NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     NSString *filePath = [directory stringByAppendingPathComponent:@"timeline.arr"];
     ArchiveArr=[NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     timeLine=[NSMutableArray arrayWithArray:ArchiveArr];
-    
+    */
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadAction)forControlEvents:UIControlEventValueChanged];
     [TimeLineTable addSubview:refreshControl];
@@ -35,10 +36,8 @@
     TimeLineTable.delegate=self;
     TimeLineTable.dataSource=self;
     ToolBar.translucent=YES;
-
-    if([timeLine count]==0){
-        [self reloadAction];
-    }
+    
+    [self reloadAction];
 //    [TimeLineTable reloadData];
 
 }
@@ -52,6 +51,10 @@
     OppConnection *GetTimeLines=[[OppConnection alloc]init];
     GetTimeLines.deleagte=self;
     [GetTimeLines get_Timeline];
+    
+    NSUserDefaults *Deff=[NSUserDefaults standardUserDefaults];
+    favLiat_Array=[NSMutableArray arrayWithArray:[Deff objectForKey:@"fav_list"]];
+    joinList_Array=[NSMutableArray arrayWithArray:[Deff objectForKey:@"join_list"]];
 }
 
 -(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
@@ -64,36 +67,25 @@
     jsonTimeLine=[NSJSONSerialization JSONObjectWithData:[responce dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
     NSLog(@"%@",err);
     
-    NSMutableArray *refreshArr=[NSMutableArray array];
-    int diff=[jsonTimeLine count]-[timeLine count];
-    int index=0;
+    [timeLine removeAllObjects];
     for (NSDictionary *obj in jsonTimeLine) {
         OppTimeLineCell *addTimeLineCell=[OppTimeLineCell initTimeLineCell];
         addTimeLineCell.subjectlabel.text=[obj objectForKey:@"Subject"];
         addTimeLineCell.topicsID=[obj objectForKey:@"Topics_ID"];
-        if (index<diff) {
-            [timeLine insertObject:addTimeLineCell atIndex:index];
-        }
-        index++;
-    }
-    //int diff=[refreshArr count]-[timeLine count];
-    NSLog(@"diff=%d",diff);
-    for (int i=[refreshArr count]-diff;i<[refreshArr count];i++) {
-        NSLog(@"loop=%d",i);
-        OppTimeLineCell *Cell=[OppTimeLineCell initTimeLineCell];
-        Cell=[refreshArr objectAtIndex:i];
-        [timeLine addObject:Cell];
+        [timeLine addObject:addTimeLineCell];
         
     }
     
     [refreshControl endRefreshing];
     
     [TimeLineTable reloadData];
+    /*
     NSArray *ArchiveArr=[NSArray new];
     ArchiveArr=[timeLine copy];
     NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     NSString *filePath = [directory stringByAppendingPathComponent:@"timeline.arr"];
     [NSKeyedArchiver archiveRootObject:ArchiveArr toFile:filePath];
+     */
 
     
 }
@@ -105,11 +97,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"loading!");
-    
     OppTimeLineCell *Cell=[OppTimeLineCell initTimeLineCell];
-    
     Cell=[timeLine objectAtIndex:indexPath.row];
     
+    if ([favLiat_Array containsObject:Cell.topicsID]==YES) {
+        [Cell.favbutton setEnabled:NO];
+    }
+    if([joinList_Array containsObject:Cell.topicsID]==YES){
+        [Cell.Joinbutton setEnabled:NO];
+    }
     return Cell;
 }
 
