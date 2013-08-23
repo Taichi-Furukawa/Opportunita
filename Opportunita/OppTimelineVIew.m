@@ -96,7 +96,6 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"loading!");
     OppTimeLineCell *Cell=[OppTimeLineCell initTimeLineCell];
     Cell=[timeLine objectAtIndex:indexPath.row];
     
@@ -110,8 +109,6 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //OppTimeLineCell *Cells;
     
     return 111.0;
 }

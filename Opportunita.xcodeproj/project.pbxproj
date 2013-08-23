@@ -28,8 +28,6 @@
 		08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
 		08A3769C178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
 		08A376A0178EB6E100E1BD9A /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769F178EB6E100E1BD9A /* SharedData.m */; };
-		26B1D29517B4ABB80023F5DA /* OppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B1D29417B4ABB80023F5DA /* OppViewController.m */; };
-		26B1D29617B4ABB80023F5DA /* OppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B1D29417B4ABB80023F5DA /* OppViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +70,6 @@
 		08A3769A178EB3BF00E1BD9A /* OppConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppConnection.m; sourceTree = "<group>"; };
 		08A3769E178EB6E100E1BD9A /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
 		08A3769F178EB6E100E1BD9A /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
-		26B1D29317B4ABB80023F5DA /* OppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppViewController.h; sourceTree = "<group>"; };
-		26B1D29417B4ABB80023F5DA /* OppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +151,6 @@
 				08212441178582FD0097AA0F /* InfoPlist.strings */,
 				08212444178582FD0097AA0F /* main.m */,
 				08212446178582FD0097AA0F /* Opportunita-Prefix.pch */,
-				26B1D29317B4ABB80023F5DA /* OppViewController.h */,
-				26B1D29417B4ABB80023F5DA /* OppViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -184,9 +178,9 @@
 			children = (
 				089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */,
 				08A3769E178EB6E100E1BD9A /* SharedData.h */,
+				08A3769F178EB6E100E1BD9A /* SharedData.m */,
 				089969E517B4E42F00E7B7B7 /* OppTimeLineCell.h */,
 				089969E617B4E42F00E7B7B7 /* OppTimeLineCell.m */,
-				08A3769F178EB6E100E1BD9A /* SharedData.m */,
 				08A37699178EB3BF00E1BD9A /* OppConnection.h */,
 				08A3769A178EB3BF00E1BD9A /* OppConnection.m */,
 			);
@@ -299,7 +293,6 @@
 				08A376A0178EB6E100E1BD9A /* SharedData.m in Sources */,
 				08212449178582FD0097AA0F /* OppAppDelegate.m in Sources */,
 				089969E717B4E42F00E7B7B7 /* OppTimeLineCell.m in Sources */,
-				26B1D29517B4ABB80023F5DA /* OppViewController.m in Sources */,
 				08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */,
 				08212445178582FD0097AA0F /* main.m in Sources */,
 				08A1962F17B49F9D00799B58 /* OppSubjectPostViewController.m in Sources */,
@@ -313,7 +306,6 @@
 			files = (
 				08212467178582FE0097AA0F /* OpportunitaTests.m in Sources */,
 				08A3769C178EB3BF00E1BD9A /* OppConnection.m in Sources */,
-				26B1D29617B4ABB80023F5DA /* OppViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
