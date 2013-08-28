@@ -18,5 +18,6 @@
 @property(retain,nonatomic)IBOutlet UIButton *Joinbutton;
 @property(retain,nonatomic)IBOutlet UILabel *subjectlabel;
 @property(retain,nonatomic)NSString *topicsID;
+@property(retain,nonatomic)NSNumber *AR_tag;
 
 @end
