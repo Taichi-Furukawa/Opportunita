@@ -72,7 +72,6 @@
         OppTimeLineCell *addTimeLineCell=[OppTimeLineCell initTimeLineCell];
         addTimeLineCell.subjectlabel.text=[obj objectForKey:@"Subject"];
         addTimeLineCell.topicsID=[obj objectForKey:@"Topics_ID"];
-        addTimeLineCell.AR_tag=[obj objectForKey:@"AR_tag"];
         [timeLine addObject:addTimeLineCell];
         
     }
@@ -104,9 +103,6 @@
         [Cell.favbutton setEnabled:NO];
     }
     if([joinList_Array containsObject:Cell.topicsID]==YES){
-        [Cell.Joinbutton setEnabled:NO];
-    }
-    if(Cell.AR_tag>0){
         [Cell.Joinbutton setEnabled:NO];
     }
     return Cell;

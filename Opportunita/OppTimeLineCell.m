@@ -9,7 +9,7 @@
 #import "OppTimeLineCell.h"
 
 @implementation OppTimeLineCell
-@synthesize favbutton,Joinbutton,subjectlabel,topicsID,AR_tag;
+@synthesize favbutton,Joinbutton,subjectlabel,topicsID;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
