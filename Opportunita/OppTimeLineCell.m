@@ -9,7 +9,7 @@
 #import "OppTimeLineCell.h"
 
 @implementation OppTimeLineCell
-@synthesize favbutton,Joinbutton,subjectlabel,topicsID;
+@synthesize favbutton,Joinbutton,subjectlabel,topicsID,delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -28,6 +28,7 @@
 }
 
 - (void)favorite:(UIButton*)fav{
+//    [delegate cellAction:@"fav"];
     NSUserDefaults *favList=[NSUserDefaults standardUserDefaults];
     NSMutableArray *favArray=[NSMutableArray arrayWithArray:[favList objectForKey:@"fav_list"]];
     
@@ -42,23 +43,34 @@
 }
 
 - (void)join:(UIButton*)join{
-    
     NSUserDefaults *joinList=[NSUserDefaults standardUserDefaults];
-    NSMutableArray *JoinArray=[NSMutableArray arrayWithArray:[joinList objectForKey:@"join_list"]];
+    NSString *joinTopic=[joinList stringForKey:@"join_list"];
+//    NSMutableArray *JoinArray=[NSMutableArray arrayWithArray:[joinList objectForKey:@"join_list"]];
     
-    OppConnection *JoinTopics=[[OppConnection alloc]init];
-    JoinTopics.deleagte=self;
-    [JoinTopics join_Topics:topicsID MyUserID:MyUserID];
-    [Joinbutton setEnabled:NO];
-    
-    [JoinArray addObject:topicsID];
-    [joinList setObject:[JoinArray copy] forKey:@"join_list"];
-    
+        if([joinTopic isEqualToString:self.topicsID]==NO){
+            OppConnection *JoinTopics=[[OppConnection alloc]init];
+            JoinTopics.deleagte=self;
+            [JoinTopics join_Topics:topicsID MyUserID:MyUserID];
+            [Joinbutton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            
+            joinTopic=topicsID;
+            [joinList setObject:joinTopic forKey:@"join_list"];
+        }else{
+            OppConnection *leave_JoinTopics=[[OppConnection alloc]init];
+            leave_JoinTopics.deleagte=self;
+            [leave_JoinTopics leave_join_topics:topicsID MyUserID:MyUserID];
+            [Joinbutton setTitleColor:[UIColor colorWithRed:0.200 green:0.600 blue:1.00 alpha:1] forState:UIControlStateNormal];
+            joinTopic=@"";
+            [joinList setObject:joinTopic forKey:@"join_list"];
+        }
+        //[delegate cellAction:@"join"];
 }
 
 -(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
+    [delegate cellAction:@"action"];
     if ([responce isEqualToString:@"ok"]==YES && [method_name isEqualToString:@"Fav"]==YES) {
-    }else{
+    }else if ([responce isEqualToString:@"ok"]==YES && [method_name isEqualToString:@"Join"]==YES){
+    [delegate cellAction:@"action"];
     }
 }
 

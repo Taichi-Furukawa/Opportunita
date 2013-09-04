@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "OppConnection.h"
 
+@protocol OppCellDelegate <NSObject>
+@optional
+-(void)cellAction :(NSString*)actionName;
+@end
+
+
 @interface OppTimeLineCell : UITableViewCell<OppDelegate>{
     NSString *MyUserID;
 }
 +(id)initTimeLineCell;
-
+@property(assign,nonatomic) id <OppCellDelegate> delegate;
 @property(retain,nonatomic)IBOutlet UIButton *favbutton;
 @property(retain,nonatomic)IBOutlet UIButton *Joinbutton;
 @property(retain,nonatomic)IBOutlet UILabel *subjectlabel;

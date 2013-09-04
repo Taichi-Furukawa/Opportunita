@@ -56,7 +56,22 @@ BOOL login;
 -(void)favorite_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID{
     Method_name=@"Fav";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSString *loginStr=[NSString stringWithFormat:@"disposal=Fav&Topics_ID=%@&User_ID=%@",Topics_ID,user_ID];
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=Fav&User_ID=%@",user_ID];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+    
+}
+
+-(void)leave_join_topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID{
+    Method_name=@"Join_leave";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=Join_leave&Topics_ID=%@&User_ID=%@",Topics_ID,user_ID];
     NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
     request=[[NSMutableURLRequest alloc]initWithURL:url];
     [request setTimeoutInterval:20];

@@ -24,6 +24,7 @@
 -(void)send_Subject:(NSString*)IncertSubject MyUserID:(NSString*)user_ID;
 -(void)favorite_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID;
 -(void)join_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID;
+-(void)leave_join_topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID;
 
 @property(assign,nonatomic) id <OppDelegate> deleagte;
 @property(retain,nonatomic)NSURLConnection *connect;
