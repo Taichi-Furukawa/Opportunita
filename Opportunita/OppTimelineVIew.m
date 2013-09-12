@@ -7,18 +7,22 @@
 //
 
 #import "OppTimelineView.h"
+#import "OppNoticeViewController.h"
+#import "SharedData.h"
 
 @interface OppTimelineView ()
 
 @end
 
 @implementation OppTimelineView
-@synthesize TimeLineTable,refreshControl,ToolBar,mention;
+@synthesize TimeLineTable,refreshControl,ToolBar,mentionBtn,pops;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     timeLine=[NSMutableArray array];
+    ar_table=[NSMutableArray array];
+    wait_column=[NSMutableArray array];
 
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadAction)forControlEvents:UIControlEventValueChanged];
@@ -29,13 +33,11 @@
     TimeLineTable.dataSource=self;
     ToolBar.translucent=YES;
     
-    [self reloadAction];
-//    [TimeLineTable reloadData];
+    //[self reloadAction];
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    mention.hidden=YES;
     [self reloadAction];
 }
 
@@ -47,21 +49,31 @@
     joinTopic=[Deff stringForKey:@"join_list"];
     
     OppConnection *GetTimeLines=[[OppConnection alloc]init];
-    GetTimeLines.deleagte=self;
+    GetTimeLines.delegate=self;
     [GetTimeLines get_Timeline];
+    /*
+    OppConnection *GetFavtable=[[OppConnection alloc]init];
+    GetFavtable.delegate=self;
+    [GetFavtable get_Favtable];
+    
+    OppConnection *GetJointable=[[OppConnection alloc]init];
+    GetJointable.delegate=self;
+    [GetJointable get_Jointable];
+    */
+    OppConnection *GetWaittable=[[OppConnection alloc]init];
+    GetWaittable.delegate=self;
+    [GetWaittable get_Waitcolumn];
+    
+    OppConnection *GetARtable=[[OppConnection alloc]init];
+    GetARtable.delegate=self;
+    [GetARtable get_ARfield];
     
 }
-
--(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
-    
+-(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{//リロード後データが届くと呼び出される
     NSArray *jsonTimeLine=[[NSArray alloc]init];
-    responce=[responce stringByReplacingOccurrencesOfString:@"	" withString:@" "];
-        responce=[responce stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    responce =[responce stringByTrimmingCharactersInSet:[NSCharacterSet controlCharacterSet]];
-    NSError *err;
-    jsonTimeLine=[NSJSONSerialization JSONObjectWithData:[responce dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
-    NSLog(@"%@",err);
-    
+    jsonTimeLine=[self jSON_to_Array:responce];
+    SharedData *sh=[SharedData instance];
+    [sh setData:jsonTimeLine forKey:@"timeline"];
     [timeLine removeAllObjects];
     for (NSDictionary *obj in jsonTimeLine) {
         OppTimeLineCell *addTimeLineCell=[OppTimeLineCell initTimeLineCell];
@@ -71,30 +83,65 @@
         [timeLine addObject:addTimeLineCell];
         
     }
-    
     [refreshControl endRefreshing];
     
     [TimeLineTable reloadData];
-    /*
-    NSArray *ArchiveArr=[NSArray new];
-    ArchiveArr=[timeLine copy];
-    NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString *filePath = [directory stringByAppendingPathComponent:@"timeline.arr"];
-    [NSKeyedArchiver archiveRootObject:ArchiveArr toFile:filePath];
-     */
-
-    
+}
+/*-(void)receiveFav_table:(NSString *)responce{//FavTableが受け渡されるデリゲート
+    SharedData *sh=[SharedData instance];
+    [sh setValue:[self jSON_to_Array:responce] forKey:@"fav_table"];
+    [refreshControl endRefreshing];
+}
+-(void)receiveJoin_table:(NSString *)responce{//joinTableが受け渡されるデリゲート
+    SharedData *sh=[SharedData instance];
+    [sh setValue:[self jSON_to_Array:responce] forKey:@"join_table"];
+     [refreshControl endRefreshing];
+}*/
+-(void)receiveWait_column:(NSString *)responce{//waitColumnが受け渡されるデリゲード
+    SharedData *sh=[SharedData instance];
+    [sh setData:[self jSON_to_Array:responce] forKey:@"wait_column"];
+    for (NSDictionary *dic in [self jSON_to_Array:responce]) {
+        [wait_column addObject:[dic objectForKey:@"Topics_ID"]];
+    }
+     [refreshControl endRefreshing];
+}
+-(void)receiveAR_field:(NSString *)responce{//ARのやつ
+    SharedData *sh=[SharedData instance];
+    [sh setData:[self jSON_to_Array:responce] forKey:@"ar_field"];
+    for (NSDictionary *dic in [self jSON_to_Array:responce]) {
+        [ar_table addObject:[dic objectForKey:@"Topics_ID"]];
+    }
+     [refreshControl endRefreshing];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSArray*)jSON_to_Array:(NSString*)jSON_string{
+    NSArray *jSONarr=[[NSArray alloc]init];
+    jSON_string=[jSON_string stringByReplacingOccurrencesOfString:@"	" withString:@" "];
+    jSON_string=[jSON_string stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    jSON_string=[jSON_string stringByTrimmingCharactersInSet:[NSCharacterSet controlCharacterSet]];
+    NSError *err;
+    jSONarr=[NSJSONSerialization JSONObjectWithData:[jSON_string dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
+    NSLog(@"%@",err);
+    
+    return jSONarr;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{//tableView関連
     
     return [timeLine count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     OppTimeLineCell *Cell=[OppTimeLineCell initTimeLineCell];
-    
     Cell=[timeLine objectAtIndex:indexPath.row];
+    
+    if ([wait_column containsObject:Cell.topicsID]==YES || [ar_table containsObject:Cell.topicsID]==YES) {
+        [Cell.favbutton setEnabled:NO];
+        [Cell.Joinbutton setEnabled:YES];
+    }else{
+        [Cell.favbutton setEnabled:YES];
+        [Cell.Joinbutton setEnabled:NO];
+    }
     
     if ([favLiat_Array containsObject:Cell.topicsID]==YES) {
         [Cell.favbutton setEnabled:NO];
@@ -116,18 +163,39 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)cellAction:(NSString *)actionName{
+
+-(void)cellAction:(NSString *)actionName{//cell上のボタンが押されたときなどに呼び出される
     [self reloadAction];
     NSLog(@"%@",actionName);
 }
--(IBAction)mention_View:(id)sender{
-    if (mention.hidden==YES) {
-        mention.hidden=NO;
-    }else if (mention.hidden==NO){
-        mention.hidden=YES;
-    }
-    
-}
 
+//mentionView関連
+-(IBAction)mention_View:(id)sender{
+    if (pops) {
+        if ([pops isPopoverVisible]) {
+            [pops dismissPopoverAnimated:YES];
+            pops=nil;
+            arSegment.enabled=YES;
+            setSegment.enabled=YES;
+            postSegment.enabled=YES;
+        }
+    }else{
+        OppNoticeViewController *mention=[self.storyboard instantiateViewControllerWithIdentifier:@"NoticeView"];
+        pops=[[UIPopoverController alloc]initWithContentViewController:mention];
+        pops.delegate=self;
+        [pops presentPopoverFromBarButtonItem:mentionBtn permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+        arSegment.enabled=NO;
+        setSegment.enabled=NO;
+        postSegment.enabled=NO;
+        
+    }
+    }
+- (void)popoverControllerDidDismissPopover: popoverController{
+    arSegment.enabled=YES;
+    setSegment.enabled=YES;
+    postSegment.enabled=YES;
+    pops=nil;
+}
 
 @end

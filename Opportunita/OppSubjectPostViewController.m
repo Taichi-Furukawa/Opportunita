@@ -44,7 +44,7 @@
     }else{
         NSUserDefaults *ID_Default=[NSUserDefaults standardUserDefaults];
         OppConnection *SendConnection=[OppConnection instance];
-        SendConnection.deleagte=self;
+        SendConnection.delegate=self;
         [SendConnection send_Subject:InsertText.text MyUserID:[ID_Default stringForKey:@"My_user_ID"]];
     }
     

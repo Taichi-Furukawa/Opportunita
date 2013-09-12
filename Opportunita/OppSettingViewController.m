@@ -1,19 +1,18 @@
 //
-//  OppMentionViewController.m
+//  OppSettingViewController.m
 //  Opportunita
 //
-//  Created by furukawa on 2013/09/04.
+//  Created by furukawa on 2013/09/06.
 //  Copyright (c) 2013年 古川 泰地. All rights reserved.
 //
 
-#import "OppMentionViewController.h"
+#import "OppSettingViewController.h"
 
-@interface OppMentionViewController ()
+@interface OppSettingViewController ()
 
 @end
 
-@implementation OppMentionViewController
-@synthesize mentionTable;
+@implementation OppSettingViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,14 +26,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    refresh=[[UIRefreshControl alloc]init];
-    [refresh addTarget:self action:@selector(mentionReload)forControlEvents:UIControlEventValueChanged];
-    [mentionTable addSubview:refresh];
 	// Do any additional setup after loading the view.
 }
 
--(void)mentionReload{
-    [refresh endRefreshing];
+-(IBAction)user_out:(id)sender{
+    NSUserDefaults *deff=[NSUserDefaults standardUserDefaults];
+    [deff removeObjectForKey:@"My_user_ID"];
+    [deff removeObjectForKey:@"LoginState"];
+    [deff removeObjectForKey:@"fav_list"];
+    [deff removeObjectForKey:@"join_list"];
+    [deff synchronize];
+    
 }
 
 - (void)didReceiveMemoryWarning

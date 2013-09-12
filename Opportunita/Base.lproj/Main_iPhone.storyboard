@@ -28,7 +28,7 @@
                                     <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="aiz-bA-Txi"/>
                                     <barButtonItem title="AR" id="VPQ-jN-ikd"/>
                                     <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="Hyb-9E-5Dx"/>
-                                    <barButtonItem title="Mention" id="49O-n9-22j">
+                                    <barButtonItem title="Notice" id="49O-n9-22j">
                                         <connections>
                                             <action selector="mention_View:" destination="K6R-DA-IFl" id="VVO-kb-wvn"/>
                                         </connections>
@@ -46,14 +46,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <containerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e85-8f-KRc">
-                                <rect key="frame" x="10" y="94" width="300" height="380"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="3Az-H1-AVV" kind="embed" id="ykB-Md-qUK"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -61,17 +53,20 @@
                     <connections>
                         <outlet property="TimeLineTable" destination="SYF-ID-23h" id="bXT-bZ-hPg"/>
                         <outlet property="ToolBar" destination="zxj-rI-bDg" id="BWi-4L-YTO"/>
-                        <outlet property="mention" destination="e85-8f-KRc" id="Xdr-vS-orU"/>
+                        <outlet property="arSegment" destination="VPQ-jN-ikd" id="5B3-Em-dCi"/>
+                        <outlet property="mentionBtn" destination="49O-n9-22j" id="0iJ-m7-pMA"/>
+                        <outlet property="postSegment" destination="lhm-Ki-vx1" id="Q5c-HG-bnA"/>
+                        <outlet property="setSegment" destination="mjW-yV-Dsr" id="dFn-4n-LGl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vmu-1K-ZNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="318" y="-1106"/>
         </scene>
-        <!--View Controller-->
+        <!--Opp Setting View Controller-->
         <scene sceneID="id8-aW-aHK">
             <objects>
-                <viewController id="rPg-6c-cXw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingVIew" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rPg-6c-cXw" customClass="OppSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UIc-Ld-SfP"/>
                         <viewControllerLayoutGuide type="bottom" id="jLm-E2-df9"/>
@@ -93,6 +88,16 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNT-J9-97B">
+                                <rect key="frame" x="102" y="110" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ログアウトする">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="user_out:" destination="rPg-6c-cXw" eventType="touchUpInside" id="qJO-BV-r22"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -149,27 +154,28 @@
             </objects>
             <point key="canvasLocation" x="1072" y="-1444"/>
         </scene>
-        <!--Opp Mention View Controller-->
+        <!--Opp Notice View Controller-->
         <scene sceneID="oHQ-8v-3oE">
             <objects>
-                <viewController storyboardIdentifier="MentionView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Az-H1-AVV" customClass="OppMentionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoticeView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Az-H1-AVV" customClass="OppNoticeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ov5-SF-iCr"/>
                         <viewControllerLayoutGuide type="bottom" id="6Ab-IR-iIX"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5CZ-66-B65">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="380"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E6t-o1-LMP">
-                                <rect key="frame" x="3" y="3" width="294" height="374"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="mentionTable" destination="E6t-o1-LMP" id="lEt-e6-Ewg"/>
                     </connections>
@@ -185,6 +191,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pfe-oA-fq9"/>
+        <segue reference="XJx-3N-8Pv"/>
     </inferredMetricsTieBreakers>
 </document>

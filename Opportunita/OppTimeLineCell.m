@@ -32,9 +32,9 @@
     NSUserDefaults *favList=[NSUserDefaults standardUserDefaults];
     NSMutableArray *favArray=[NSMutableArray arrayWithArray:[favList objectForKey:@"fav_list"]];
     
-    NSLog(@"%@",topicsID);
+  //  NSLog(@"ID=%@",topicsID);
     OppConnection *FavTopics=[[OppConnection alloc]init];
-    FavTopics.deleagte=self;
+    FavTopics.delegate=self;
     [FavTopics favorite_Topics:topicsID MyUserID:MyUserID];
     [favbutton setEnabled:NO];
     
@@ -46,10 +46,10 @@
     NSUserDefaults *joinList=[NSUserDefaults standardUserDefaults];
     NSString *joinTopic=[joinList stringForKey:@"join_list"];
 //    NSMutableArray *JoinArray=[NSMutableArray arrayWithArray:[joinList objectForKey:@"join_list"]];
-    
+    join.enabled=NO;
         if([joinTopic isEqualToString:self.topicsID]==NO){
             OppConnection *JoinTopics=[[OppConnection alloc]init];
-            JoinTopics.deleagte=self;
+            JoinTopics.delegate=self;
             [JoinTopics join_Topics:topicsID MyUserID:MyUserID];
             [Joinbutton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
             
@@ -57,7 +57,7 @@
             [joinList setObject:joinTopic forKey:@"join_list"];
         }else{
             OppConnection *leave_JoinTopics=[[OppConnection alloc]init];
-            leave_JoinTopics.deleagte=self;
+            leave_JoinTopics.delegate=self;
             [leave_JoinTopics leave_join_topics:topicsID MyUserID:MyUserID];
             [Joinbutton setTitleColor:[UIColor colorWithRed:0.200 green:0.600 blue:1.00 alpha:1] forState:UIControlStateNormal];
             joinTopic=@"";
@@ -69,7 +69,9 @@
 -(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
     [delegate cellAction:@"action"];
     if ([responce isEqualToString:@"ok"]==YES && [method_name isEqualToString:@"Fav"]==YES) {
+        
     }else if ([responce isEqualToString:@"ok"]==YES && [method_name isEqualToString:@"Join"]==YES){
+        Joinbutton.enabled=YES;
     [delegate cellAction:@"action"];
     }
 }

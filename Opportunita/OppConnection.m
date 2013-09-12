@@ -9,7 +9,7 @@
 #import "OppConnection.h"
 
 @implementation OppConnection
-@synthesize connect,request,responceData,responceString,deleagte;
+@synthesize connect,request,responceData,responceString,delegate;
 BOOL login;
 + (id)instance
 {
@@ -53,10 +53,10 @@ BOOL login;
     
 }
 
--(void)favorite_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID{
-    Method_name=@"Fav";
+-(void)get_Favtable{
+    Method_name=@"get_Favtable";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSString *loginStr=[NSString stringWithFormat:@"disposal=Fav&User_ID=%@",user_ID];
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=getFavTable"];
     NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
     request=[[NSMutableURLRequest alloc]initWithURL:url];
     [request setTimeoutInterval:20];
@@ -68,10 +68,66 @@ BOOL login;
     
 }
 
+-(void)get_Jointable{
+    Method_name=@"get_Jointable";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=getJoinTable"];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+}
+
+-(void)get_Waitcolumn{
+    Method_name=@"get_WaitColumn";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=getWaitColumn"];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+}
+
+-(void)get_ARfield{
+    Method_name=@"get_ARfield";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=getARfield"];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+}
+
+-(void)favorite_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID{
+    Method_name=@"Fav";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=Fav&Topics_ID=%@&User_ID=%@",Topics_ID,user_ID];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+}
+
 -(void)leave_join_topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID{
     Method_name=@"Join_leave";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSString *loginStr=[NSString stringWithFormat:@"disposal=Join_leave&Topics_ID=%@&User_ID=%@",Topics_ID,user_ID];
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=Join_leave&User_ID=%@",user_ID];
     NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/main.php"];
     request=[[NSMutableURLRequest alloc]initWithURL:url];
     [request setTimeoutInterval:20];
@@ -130,11 +186,22 @@ BOOL login;
 }
 
 -(void)connection:( NSURLConnection *) connection didReceiveData:( NSData *) resdata{
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     responceString = [[NSString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
     NSLog(@"res=%@",responceString);
-    [deleagte ReceiveData:[responceString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]] Method:Method_name];
+    
+    if([Method_name isEqualToString:@"get_Favtable"]==YES){//favtableの受け渡しデリゲート
+        [delegate receiveFav_table:responceString];
+    }else if([Method_name isEqualToString:@"get_Jointable"]==YES){//ジョインテーブルの受け渡しデリゲート
+        [delegate receiveJoin_table:responceString];
+    }else if([Method_name isEqualToString:@"get_WaitColumn"]==YES){//waitcolumnの受け渡しデリゲート
+        [delegate receiveWait_column:responceString];
+    }else if([Method_name isEqualToString:@"get_ARfield"]==YES){//arfieldの受け渡しデリゲート
+        [delegate receiveAR_field:responceString];
+    }else{//それ以外はreceiveDataをデリゲート
+            [delegate ReceiveData:[responceString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]] Method:Method_name];
+    }
+
     connect=nil;
 }
 

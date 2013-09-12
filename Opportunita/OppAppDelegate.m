@@ -20,7 +20,7 @@ BOOL login;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound| UIRemoteNotificationTypeAlert)];
     }else{
-        NSLog(@"%@",[user_def stringForKey:@"My_user_ID"]);
+        NSLog(@"%@",[user_def stringForKey:@"My_usser_ID"]);
     }
 
     return YES;
@@ -38,7 +38,7 @@ BOOL login;
     NSLog(@"deletoken=%@",Token);
     
     OppConnection *loginConnection=[OppConnection instance];
-    loginConnection.deleagte=self;
+    loginConnection.delegate=self;
     [loginConnection login_and_DeviceToken:Token];
     
     
