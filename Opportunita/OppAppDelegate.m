@@ -22,6 +22,11 @@ BOOL login;
     }else{
         NSLog(@"%@",[user_def stringForKey:@"My_usser_ID"]);
     }
+    
+    NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if(userInfo){//push
+        NSLog(@"%@",userInfo);
+    }
 
     return YES;
 }
@@ -69,6 +74,19 @@ BOOL login;
     
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"%@",userInfo);
+    if (UIApplicationStateInactive == application.applicationState)
+    {
+        //ユーザが通知情報をタップしたことによってフォアグラウンドになった
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+    if (UIApplicationStateActive == application.applicationState)
+    {
+        //フォアグラウンドでバリバリ動いてる最中にpushが飛んできた
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -90,6 +108,7 @@ BOOL login;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

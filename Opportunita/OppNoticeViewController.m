@@ -25,7 +25,7 @@ int countInterval=0;
 - (void)viewDidLoad{
     
     [super viewDidLoad];
-    indiCell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    indiCell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     One_section=[NSMutableArray array];
     Two_section=[NSMutableArray array];
     One_sectionData=[[NSDictionary alloc]init];
@@ -53,27 +53,32 @@ int countInterval=0;
                     [formatter setDateFormat:@"HH:mm:ss"];
                     NSCalendar *calendar = [NSCalendar currentCalendar];
                     NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:[NSDate date]];
-                    NSLog(@"form=%d:%d:%d",dateComps.hour,dateComps.minute,dateComps.second);
-                    /*
-                    float tmp= [[formatter dateFromString:[One_sectionData objectForKey:@"Meet_limited"]] timeIntervalSinceDate:[formatter dateFromString:[NSString stringWithFormat:@"%d:%d:%d",dateComps.hour,dateComps.minute,dateComps.second]]];  // (2)
-                     */
                     float tmp= [[formatter dateFromString:[One_sectionData objectForKey:@"Meet_limited"]] timeIntervalSinceDate:[formatter dateFromString:[NSString stringWithFormat:@"%d:%d:%d",dateComps.hour,dateComps.minute,dateComps.second]]];
                     int hh = (int)(tmp / 3600);
                     int mm = (int)((tmp-hh) / 60);
                     int ss = tmp - (float)(hh*3600+mm*60);
-                    NSLog(@"のこり%d時間%d分%d秒で消滅します",hh,mm,ss);
                     indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",hh,mm,ss];
                     [One_section addObject:indiCell];
                 }
             }
-        }
-    }
     NSTimer *countdown=[[NSTimer alloc]init];
     countdown=[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(count_Down:) userInfo:nil repeats:YES];
+        }
+    }
+
     [mentionTable reloadData];
 }
 
 -(void)count_Down:(NSTimer*)sender{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm:ss"];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:[NSDate date]];
+    float tmp= [[formatter dateFromString:[One_sectionData objectForKey:@"Meet_limited"]] timeIntervalSinceDate:[formatter dateFromString:[NSString stringWithFormat:@"%d:%d:%d",dateComps.hour,dateComps.minute,dateComps.second]]];
+    int hh = (int)(tmp / 3600);
+    int mm = (int)((tmp-hh) / 60);
+    int ss = tmp - (float)(hh*3600+mm*60);
+    indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",hh,mm,ss];
 }
 
 -(void)mentionReload{
@@ -103,7 +108,11 @@ int countInterval=0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50.0;
+    if (indexPath.section==0) {
+        return 60;
+    }else{
+        return 40;
+    }
 }
 
 - (void)didReceiveMemoryWarning{
