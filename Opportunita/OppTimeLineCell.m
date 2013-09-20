@@ -52,7 +52,6 @@
             JoinTopics.delegate=self;
             [JoinTopics join_Topics:topicsID MyUserID:MyUserID];
             [Joinbutton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-            
             joinTopic=topicsID;
             [joinList setObject:joinTopic forKey:@"join_list"];
         }else{

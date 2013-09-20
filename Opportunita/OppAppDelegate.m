@@ -85,6 +85,7 @@ BOOL login;
     if (UIApplicationStateActive == application.applicationState)
     {
         //フォアグラウンドでバリバリ動いてる最中にpushが飛んできた
+        NSLog(@"Push Hello");
     }
 }
 
