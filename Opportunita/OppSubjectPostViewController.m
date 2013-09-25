@@ -38,6 +38,7 @@
 }
 
 -(IBAction)PostBtn:(id)sender{
+    NSLog(@"post!");
     if ([InsertText hasText]==NO) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"何も入力されていません"message:@"送れません" delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
         [alertView show];
@@ -58,9 +59,13 @@
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"送信に問題が発生しました"message:@"時間をおいてやりなおしてね" delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
         [alertView show];
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    /*
     UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     OppTimelineView *timeLineView=[storyboard instantiateViewControllerWithIdentifier:@"TimelineView"];
     [self presentViewController:timeLineView animated:YES completion:nil];
+     */
     
 }
 

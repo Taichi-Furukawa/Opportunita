@@ -26,6 +26,7 @@ BOOL login;
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(userInfo){//push
         NSLog(@"%@",userInfo);
+        NSLog(@"app launch with push");
     }
 
     return YES;
@@ -81,11 +82,12 @@ BOOL login;
         //ユーザが通知情報をタップしたことによってフォアグラウンドになった
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        NSLog(@"Push User tap fore ground");
     }
     if (UIApplicationStateActive == application.applicationState)
     {
         //フォアグラウンドでバリバリ動いてる最中にpushが飛んできた
-        NSLog(@"Push Hello");
+        NSLog(@"Push foreground");
     }
 }
 

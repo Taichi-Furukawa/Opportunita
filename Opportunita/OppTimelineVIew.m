@@ -15,7 +15,7 @@
 @end
 
 @implementation OppTimelineView
-@synthesize TimeLineTable,refreshControl,ToolBar,mentionBtn,pops;
+@synthesize TimeLineTable,refreshControl,pops;
 
 - (void)viewDidLoad
 {
@@ -31,8 +31,9 @@
     TimeLineTable.allowsSelection=NO;
     TimeLineTable.delegate=self;
     TimeLineTable.dataSource=self;
-    ToolBar.translucent=YES;
-    
+    mentionBtn=[[UIBarButtonItem alloc]initWithTitle:@"Notise" style:UIBarButtonItemStyleBordered target:self action:@selector(mention_View:)];
+    mentionBtn.title=@"Notice";
+    self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:postSegment,mentionBtn, nil];
     //[self reloadAction];
 
 }
@@ -200,12 +201,11 @@
 }
 
 //mentionView関連
--(IBAction)mention_View:(id)sender{
+-(void)mention_View:(id)sender{
     if (pops) {
         if ([pops isPopoverVisible]) {
             [pops dismissPopoverAnimated:YES];
             pops=nil;
-            arSegment.enabled=YES;
             setSegment.enabled=YES;
             postSegment.enabled=YES;
         }
@@ -215,14 +215,12 @@
         pops.delegate=self;
         [pops presentPopoverFromBarButtonItem:mentionBtn permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
-        arSegment.enabled=NO;
         setSegment.enabled=NO;
         postSegment.enabled=NO;
         
     }
     }
 - (void)popoverControllerDidDismissPopover: popoverController{
-    arSegment.enabled=YES;
     setSegment.enabled=YES;
     postSegment.enabled=YES;
     pops=nil;

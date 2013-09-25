@@ -17,14 +17,12 @@
     NSString *joinTopic;
     
     IBOutlet UIBarButtonItem *postSegment;
-    IBOutlet UIBarButtonItem *arSegment;
     IBOutlet UIBarButtonItem *setSegment;
+    UIBarButtonItem *mentionBtn;
 }
 
 @property(retain,nonatomic)IBOutlet UITableView *TimeLineTable;
 @property(retain,nonatomic)UIRefreshControl* refreshControl;
-@property(retain,nonatomic)IBOutlet UIToolbar *ToolBar;
-@property(retain,nonatomic)IBOutlet UIBarButtonItem *mentionBtn;
 @property(retain,nonatomic)UIPopoverController *pops;
 
 @end

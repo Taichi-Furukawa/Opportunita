@@ -69,6 +69,7 @@ int countInterval=0;
     [mentionTable reloadData];
 }
 
+
 -(void)count_Down:(NSTimer*)sender{
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm:ss"];
@@ -78,7 +79,7 @@ int countInterval=0;
     int hh = (int)(tmp / 3600);
     int mm = (int)((tmp-hh) / 60);
     int ss = tmp - (float)(hh*3600+mm*60);
-    if (hh<0 && mm<0 && ss<0) {
+    if (hh<0 || mm<0 || ss<0) {
     indiCell.textLabel.text =[NSString stringWithFormat:@"この話題は解散になりました。"];
     }else{
     indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",hh,mm,ss];
