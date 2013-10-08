@@ -185,7 +185,7 @@ BOOL login;
      */
 }
 
--(void)connection:( NSURLConnection *) connection didReceiveData:( NSData *) resdata{
+-(void)connection:( NSURLConnection *) connections didReceiveData:( NSData *) resdata{
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     responceString = [[NSString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
     NSLog(@"res=%@",responceString);

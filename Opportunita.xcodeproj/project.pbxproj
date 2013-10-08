@@ -7,30 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0806CC6917FECFEB0063256C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0806CC6817FECFEB0063256C /* AudioToolbox.framework */; };
+		0808C24017FD583E006A0FA0 /* ShaderUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0808C23E17FD583E006A0FA0 /* ShaderUtils.cpp */; };
+		081A94A617FD8A6000EC6512 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 081A94A517FD8A6000EC6512 /* EAGLView.mm */; };
+		081A94A917FD8EB400EC6512 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 081A94A817FD8EB400EC6512 /* ARViewController.mm */; };
+		081A94AC17FD8F5200EC6512 /* ARParentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 081A94AB17FD8F5200EC6512 /* ARParentViewController.mm */; };
 		08212439178582FD0097AA0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08212438178582FD0097AA0F /* Foundation.framework */; };
 		0821243B178582FD0097AA0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0821243A178582FD0097AA0F /* CoreGraphics.framework */; };
 		0821243D178582FD0097AA0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0821243C178582FD0097AA0F /* UIKit.framework */; };
 		08212443178582FD0097AA0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08212441178582FD0097AA0F /* InfoPlist.strings */; };
 		08212445178582FD0097AA0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212444178582FD0097AA0F /* main.m */; };
-		08212449178582FD0097AA0F /* OppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212448178582FD0097AA0F /* OppAppDelegate.m */; };
+		08212449178582FD0097AA0F /* OppAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08212448178582FD0097AA0F /* OppAppDelegate.mm */; };
 		0821244C178582FD0097AA0F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0821244A178582FD0097AA0F /* Main_iPhone.storyboard */; };
 		0821244F178582FD0097AA0F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0821244D178582FD0097AA0F /* Main_iPad.storyboard */; };
-		08212452178582FD0097AA0F /* OppTimelineVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212451178582FD0097AA0F /* OppTimelineVIew.m */; };
+		08212452178582FD0097AA0F /* OppTimelineVIew.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08212451178582FD0097AA0F /* OppTimelineVIew.mm */; };
 		08212454178582FE0097AA0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08212453178582FE0097AA0F /* Images.xcassets */; };
 		0821245B178582FE0097AA0F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0821245A178582FE0097AA0F /* XCTest.framework */; };
 		0821245C178582FE0097AA0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08212438178582FD0097AA0F /* Foundation.framework */; };
 		0821245D178582FE0097AA0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0821243C178582FD0097AA0F /* UIKit.framework */; };
 		08212465178582FE0097AA0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08212463178582FE0097AA0F /* InfoPlist.strings */; };
 		08212467178582FE0097AA0F /* OpportunitaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08212466178582FE0097AA0F /* OpportunitaTests.m */; };
+		0838468317FC0A1C001F0265 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838468217FC0A1C001F0265 /* CoreMotion.framework */; };
+		0838468517FC0A24001F0265 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838468417FC0A24001F0265 /* AVFoundation.framework */; };
+		0838468717FC0A2F001F0265 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838468617FC0A2F001F0265 /* CoreMedia.framework */; };
+		0838468917FC0A38001F0265 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838468817FC0A38001F0265 /* CoreVideo.framework */; };
+		0838468B17FC0A42001F0265 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838468A17FC0A42001F0265 /* Security.framework */; };
+		0838468D17FC0A51001F0265 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838468C17FC0A51001F0265 /* SystemConfiguration.framework */; };
+		0838468F17FC0A5B001F0265 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838468E17FC0A5B001F0265 /* QuartzCore.framework */; };
+		0838469117FC0A62001F0265 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838469017FC0A62001F0265 /* OpenGLES.framework */; };
+		0838469317FC0A8B001F0265 /* libQCAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838469217FC0A8B001F0265 /* libQCAR.a */; };
+		083846F317FC1EFD001F0265 /* QCARutils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 083846F217FC1EFD001F0265 /* QCARutils.mm */; };
 		089969E417B4E0A200E7B7B7 /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */; };
-		089969E717B4E42F00E7B7B7 /* OppTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 089969E617B4E42F00E7B7B7 /* OppTimeLineCell.m */; };
+		089969E717B4E42F00E7B7B7 /* OppTimeLineCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 089969E617B4E42F00E7B7B7 /* OppTimeLineCell.mm */; };
 		08A1962F17B49F9D00799B58 /* OppSubjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */; };
 		08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
 		08A3769C178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
-		08A376A0178EB6E100E1BD9A /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769F178EB6E100E1BD9A /* SharedData.m */; };
+		08A376A0178EB6E100E1BD9A /* SharedData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769F178EB6E100E1BD9A /* SharedData.mm */; };
+		08D5772217FD682C00C26C47 /* AR_EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08D5771F17FD682C00C26C47 /* AR_EAGLView.mm */; };
+		08D5772317FD682C00C26C47 /* Texture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08D5772117FD682C00C26C47 /* Texture.mm */; };
+		08D5772817FD692900C26C47 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 08D5772417FD683F00C26C47 /* Shader.fsh */; };
+		08D5772917FD692900C26C47 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 08D5772517FD683F00C26C47 /* Shader.vsh */; };
+		08D5772C17FD6B5D00C26C47 /* OverlayViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08D5772B17FD6B5D00C26C47 /* OverlayViewController.mm */; };
+		08D5772F17FD6BBD00C26C47 /* OverlayView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08D5772E17FD6BBD00C26C47 /* OverlayView.mm */; };
 		08D9EBB817D72B5F00CB7379 /* OppNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D9EBB717D72B5F00CB7379 /* OppNoticeViewController.m */; };
-		08D9EBBB17D981F400CB7379 /* OppSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D9EBBA17D981F400CB7379 /* OppSettingViewController.m */; };
-		08D9EBC117D98CBA00CB7379 /* UIPopover+iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D9EBC017D98CBA00CB7379 /* UIPopover+iPhone.m */; };
+		08D9EBBB17D981F400CB7379 /* OppSettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08D9EBBA17D981F400CB7379 /* OppSettingViewController.mm */; };
+		08D9EBC117D98CBA00CB7379 /* UIPopover+iPhone.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08D9EBC017D98CBA00CB7379 /* UIPopover+iPhone.mm */; };
 		08F3B3B517CC96BD000BD252 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F3B3B417CC96BD000BD252 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +66,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0806CC6817FECFEB0063256C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0806CC6A17FECFEB0063256C /* Opportunita.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Opportunita.entitlements; sourceTree = "<group>"; };
+		0808C23E17FD583E006A0FA0 /* ShaderUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderUtils.cpp; sourceTree = "<group>"; };
+		0808C23F17FD583E006A0FA0 /* ShaderUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtils.h; sourceTree = "<group>"; };
+		081A94A417FD8A6000EC6512 /* EAGLView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = EAGLView.h; sourceTree = "<group>"; };
+		081A94A517FD8A6000EC6512 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
+		081A94A717FD8EB400EC6512 /* ARViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = ARViewController.h; path = ARCommon/ARViewController.h; sourceTree = SOURCE_ROOT; };
+		081A94A817FD8EB400EC6512 /* ARViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ARViewController.mm; path = ARCommon/ARViewController.mm; sourceTree = SOURCE_ROOT; };
+		081A94AA17FD8F5200EC6512 /* ARParentViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = ARParentViewController.h; path = ARCommon/ARParentViewController.h; sourceTree = SOURCE_ROOT; };
+		081A94AB17FD8F5200EC6512 /* ARParentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ARParentViewController.mm; path = ARCommon/ARParentViewController.mm; sourceTree = SOURCE_ROOT; };
 		08212435178582FD0097AA0F /* Opportunita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opportunita.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08212438178582FD0097AA0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0821243A178582FD0097AA0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,32 +85,100 @@
 		08212444178582FD0097AA0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08212446178582FD0097AA0F /* Opportunita-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Opportunita-Prefix.pch"; sourceTree = "<group>"; };
 		08212447178582FD0097AA0F /* OppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OppAppDelegate.h; sourceTree = "<group>"; };
-		08212448178582FD0097AA0F /* OppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OppAppDelegate.m; sourceTree = "<group>"; };
+		08212448178582FD0097AA0F /* OppAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OppAppDelegate.mm; sourceTree = "<group>"; };
 		0821244B178582FD0097AA0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0821244E178582FD0097AA0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		08212450178582FD0097AA0F /* OppTimelineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OppTimelineView.h; sourceTree = "<group>"; };
-		08212451178582FD0097AA0F /* OppTimelineVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OppTimelineVIew.m; sourceTree = "<group>"; };
+		08212451178582FD0097AA0F /* OppTimelineVIew.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OppTimelineVIew.mm; sourceTree = "<group>"; };
 		08212453178582FE0097AA0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		08212459178582FE0097AA0F /* OpportunitaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpportunitaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0821245A178582FE0097AA0F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		08212462178582FE0097AA0F /* OpportunitaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpportunitaTests-Info.plist"; sourceTree = "<group>"; };
 		08212464178582FE0097AA0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08212466178582FE0097AA0F /* OpportunitaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpportunitaTests.m; sourceTree = "<group>"; };
+		0838468217FC0A1C001F0265 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		0838468417FC0A24001F0265 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0838468617FC0A2F001F0265 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0838468817FC0A38001F0265 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		0838468A17FC0A42001F0265 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0838468C17FC0A51001F0265 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0838468E17FC0A5B001F0265 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0838469017FC0A62001F0265 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0838469217FC0A8B001F0265 /* libQCAR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQCAR.a; path = build/lib/arm/libQCAR.a; sourceTree = "<group>"; };
+		083846F117FC1EFD001F0265 /* QCARutils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = QCARutils.h; path = ARCommon/QCARutils.h; sourceTree = SOURCE_ROOT; };
+		083846F217FC1EFD001F0265 /* QCARutils.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = QCARutils.mm; path = ARCommon/QCARutils.mm; sourceTree = SOURCE_ROOT; };
+		083846F517FC2D51001F0265 /* Area.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Area.h; sourceTree = "<group>"; };
+		083846F617FC2D51001F0265 /* CameraCalibration.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = CameraCalibration.h; sourceTree = "<group>"; };
+		083846F717FC2D51001F0265 /* CameraDevice.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = CameraDevice.h; sourceTree = "<group>"; };
+		083846F817FC2D51001F0265 /* CylinderTarget.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = CylinderTarget.h; sourceTree = "<group>"; };
+		083846F917FC2D51001F0265 /* CylinderTargetResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = CylinderTargetResult.h; sourceTree = "<group>"; };
+		083846FA17FC2D51001F0265 /* DataSet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = DataSet.h; sourceTree = "<group>"; };
+		083846FB17FC2D51001F0265 /* Frame.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Frame.h; sourceTree = "<group>"; };
+		083846FC17FC2D51001F0265 /* Image.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Image.h; sourceTree = "<group>"; };
+		083846FD17FC2D51001F0265 /* ImageTarget.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = ImageTarget.h; sourceTree = "<group>"; };
+		083846FE17FC2D51001F0265 /* ImageTargetBuilder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = ImageTargetBuilder.h; sourceTree = "<group>"; };
+		083846FF17FC2D51001F0265 /* ImageTargetResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = ImageTargetResult.h; sourceTree = "<group>"; };
+		0838470017FC2D51001F0265 /* ImageTracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = ImageTracker.h; sourceTree = "<group>"; };
+		0838470117FC2D51001F0265 /* Marker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Marker.h; sourceTree = "<group>"; };
+		0838470217FC2D51001F0265 /* MarkerResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MarkerResult.h; sourceTree = "<group>"; };
+		0838470317FC2D51001F0265 /* MarkerTracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MarkerTracker.h; sourceTree = "<group>"; };
+		0838470417FC2D51001F0265 /* Matrices.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Matrices.h; sourceTree = "<group>"; };
+		0838470517FC2D51001F0265 /* MultiTarget.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MultiTarget.h; sourceTree = "<group>"; };
+		0838470617FC2D51001F0265 /* MultiTargetResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MultiTargetResult.h; sourceTree = "<group>"; };
+		0838470717FC2D51001F0265 /* NonCopyable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = NonCopyable.h; sourceTree = "<group>"; };
+		0838470817FC2D51001F0265 /* Obb2D.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Obb2D.h; sourceTree = "<group>"; };
+		0838470917FC2D51001F0265 /* QCAR.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = QCAR.h; sourceTree = "<group>"; };
+		0838470A17FC2D51001F0265 /* QCAR_iOS.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = QCAR_iOS.h; sourceTree = "<group>"; };
+		0838470B17FC2D51001F0265 /* Rectangle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Rectangle.h; sourceTree = "<group>"; };
+		0838470C17FC2D51001F0265 /* Renderer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Renderer.h; sourceTree = "<group>"; };
+		0838470D17FC2D51001F0265 /* State.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = State.h; sourceTree = "<group>"; };
+		0838470E17FC2D51001F0265 /* System.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = System.h; sourceTree = "<group>"; };
+		0838470F17FC2D51001F0265 /* TargetFinder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = TargetFinder.h; sourceTree = "<group>"; };
+		0838471017FC2D51001F0265 /* TargetSearchResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = TargetSearchResult.h; sourceTree = "<group>"; };
+		0838471117FC2D51001F0265 /* TextTracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = TextTracker.h; sourceTree = "<group>"; };
+		0838471217FC2D51001F0265 /* Tool.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Tool.h; sourceTree = "<group>"; };
+		0838471317FC2D51001F0265 /* Trackable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Trackable.h; sourceTree = "<group>"; };
+		0838471417FC2D51001F0265 /* TrackableResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = TrackableResult.h; sourceTree = "<group>"; };
+		0838471517FC2D51001F0265 /* TrackableSource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = TrackableSource.h; sourceTree = "<group>"; };
+		0838471617FC2D51001F0265 /* Tracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Tracker.h; sourceTree = "<group>"; };
+		0838471717FC2D51001F0265 /* TrackerManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = TrackerManager.h; sourceTree = "<group>"; };
+		0838471817FC2D51001F0265 /* UIGLViewProtocol.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = UIGLViewProtocol.h; sourceTree = "<group>"; };
+		0838471917FC2D51001F0265 /* UpdateCallback.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = UpdateCallback.h; sourceTree = "<group>"; };
+		0838471A17FC2D51001F0265 /* Vectors.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Vectors.h; sourceTree = "<group>"; };
+		0838471B17FC2D51001F0265 /* VideoBackgroundConfig.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = VideoBackgroundConfig.h; sourceTree = "<group>"; };
+		0838471C17FC2D51001F0265 /* VideoBackgroundTextureInfo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = VideoBackgroundTextureInfo.h; sourceTree = "<group>"; };
+		0838471D17FC2D51001F0265 /* VideoMode.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = VideoMode.h; sourceTree = "<group>"; };
+		0838471E17FC2D51001F0265 /* VirtualButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = VirtualButton.h; sourceTree = "<group>"; };
+		0838471F17FC2D51001F0265 /* VirtualButtonResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = VirtualButtonResult.h; sourceTree = "<group>"; };
+		0838472017FC2D51001F0265 /* Word.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Word.h; sourceTree = "<group>"; };
+		0838472117FC2D51001F0265 /* WordList.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = WordList.h; sourceTree = "<group>"; };
+		0838472217FC2D51001F0265 /* WordResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = WordResult.h; sourceTree = "<group>"; };
 		089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineCell.xib; sourceTree = "<group>"; };
 		089969E517B4E42F00E7B7B7 /* OppTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppTimeLineCell.h; sourceTree = "<group>"; };
-		089969E617B4E42F00E7B7B7 /* OppTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppTimeLineCell.m; sourceTree = "<group>"; };
+		089969E617B4E42F00E7B7B7 /* OppTimeLineCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OppTimeLineCell.mm; sourceTree = "<group>"; };
 		08A1962D17B49F9D00799B58 /* OppSubjectPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppSubjectPostViewController.h; sourceTree = "<group>"; };
-		08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppSubjectPostViewController.m; sourceTree = "<group>"; };
+		08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = OppSubjectPostViewController.m; sourceTree = "<group>"; };
 		08A37699178EB3BF00E1BD9A /* OppConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppConnection.h; sourceTree = "<group>"; };
 		08A3769A178EB3BF00E1BD9A /* OppConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppConnection.m; sourceTree = "<group>"; };
 		08A3769E178EB6E100E1BD9A /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
-		08A3769F178EB6E100E1BD9A /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
+		08A3769F178EB6E100E1BD9A /* SharedData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedData.mm; sourceTree = "<group>"; };
+		08D5771E17FD682C00C26C47 /* AR_EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AR_EAGLView.h; path = ARCommon/AR_EAGLView.h; sourceTree = SOURCE_ROOT; };
+		08D5771F17FD682C00C26C47 /* AR_EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AR_EAGLView.mm; path = ARCommon/AR_EAGLView.mm; sourceTree = SOURCE_ROOT; };
+		08D5772017FD682C00C26C47 /* Texture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Texture.h; path = ARCommon/Texture.h; sourceTree = SOURCE_ROOT; };
+		08D5772117FD682C00C26C47 /* Texture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Texture.mm; path = ARCommon/Texture.mm; sourceTree = SOURCE_ROOT; };
+		08D5772417FD683F00C26C47 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = ARCommon/Sharders/Shader.fsh; sourceTree = SOURCE_ROOT; };
+		08D5772517FD683F00C26C47 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = ARCommon/Sharders/Shader.vsh; sourceTree = SOURCE_ROOT; };
+		08D5772A17FD6B5D00C26C47 /* OverlayViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = OverlayViewController.h; path = ARCommon/OverlayViewController.h; sourceTree = SOURCE_ROOT; };
+		08D5772B17FD6B5D00C26C47 /* OverlayViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OverlayViewController.mm; path = ARCommon/OverlayViewController.mm; sourceTree = SOURCE_ROOT; };
+		08D5772D17FD6BBD00C26C47 /* OverlayView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = OverlayView.h; path = ARCommon/OverlayView.h; sourceTree = SOURCE_ROOT; };
+		08D5772E17FD6BBD00C26C47 /* OverlayView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OverlayView.mm; path = ARCommon/OverlayView.mm; sourceTree = SOURCE_ROOT; };
 		08D9EBB617D72B5F00CB7379 /* OppNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppNoticeViewController.h; sourceTree = "<group>"; };
 		08D9EBB717D72B5F00CB7379 /* OppNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppNoticeViewController.m; sourceTree = "<group>"; };
 		08D9EBB917D981F400CB7379 /* OppSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppSettingViewController.h; sourceTree = "<group>"; };
-		08D9EBBA17D981F400CB7379 /* OppSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppSettingViewController.m; sourceTree = "<group>"; };
+		08D9EBBA17D981F400CB7379 /* OppSettingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OppSettingViewController.mm; sourceTree = "<group>"; };
 		08D9EBBF17D98CBA00CB7379 /* UIPopover+iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopover+iPhone.h"; sourceTree = "<group>"; };
-		08D9EBC017D98CBA00CB7379 /* UIPopover+iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopover+iPhone.m"; sourceTree = "<group>"; };
+		08D9EBC017D98CBA00CB7379 /* UIPopover+iPhone.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIPopover+iPhone.mm"; sourceTree = "<group>"; };
+		08E0A2B71802B42B00598227 /* object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = object.h; path = ARCommon/object.h; sourceTree = SOURCE_ROOT; };
 		08F3B3B417CC96BD000BD252 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +187,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0838469317FC0A8B001F0265 /* libQCAR.a in Frameworks */,
+				0838469117FC0A62001F0265 /* OpenGLES.framework in Frameworks */,
+				0838468F17FC0A5B001F0265 /* QuartzCore.framework in Frameworks */,
+				0838468D17FC0A51001F0265 /* SystemConfiguration.framework in Frameworks */,
+				0838468B17FC0A42001F0265 /* Security.framework in Frameworks */,
+				0806CC6917FECFEB0063256C /* AudioToolbox.framework in Frameworks */,
+				0838468917FC0A38001F0265 /* CoreVideo.framework in Frameworks */,
+				0838468717FC0A2F001F0265 /* CoreMedia.framework in Frameworks */,
+				0838468517FC0A24001F0265 /* AVFoundation.framework in Frameworks */,
+				0838468317FC0A1C001F0265 /* CoreMotion.framework in Frameworks */,
 				0821243B178582FD0097AA0F /* CoreGraphics.framework in Frameworks */,
 				0821243D178582FD0097AA0F /* UIKit.framework in Frameworks */,
 				08212439178582FD0097AA0F /* Foundation.framework in Frameworks */,
@@ -107,6 +216,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0808C23D17FD5828006A0FA0 /* Sharders */ = {
+			isa = PBXGroup;
+			children = (
+				08E0A2B71802B42B00598227 /* object.h */,
+				08D5772417FD683F00C26C47 /* Shader.fsh */,
+				08D5772517FD683F00C26C47 /* Shader.vsh */,
+				0808C23E17FD583E006A0FA0 /* ShaderUtils.cpp */,
+				0808C23F17FD583E006A0FA0 /* ShaderUtils.h */,
+				081A94A417FD8A6000EC6512 /* EAGLView.h */,
+				081A94A517FD8A6000EC6512 /* EAGLView.mm */,
+			);
+			name = Sharders;
+			sourceTree = "<group>";
+		};
 		0821242C178582FD0097AA0F = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +253,17 @@
 		08212437178582FD0097AA0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0806CC6817FECFEB0063256C /* AudioToolbox.framework */,
+				083846F417FC2D51001F0265 /* QCAR */,
+				0838469217FC0A8B001F0265 /* libQCAR.a */,
+				0838469017FC0A62001F0265 /* OpenGLES.framework */,
+				0838468E17FC0A5B001F0265 /* QuartzCore.framework */,
+				0838468C17FC0A51001F0265 /* SystemConfiguration.framework */,
+				0838468A17FC0A42001F0265 /* Security.framework */,
+				0838468817FC0A38001F0265 /* CoreVideo.framework */,
+				0838468617FC0A2F001F0265 /* CoreMedia.framework */,
+				0838468417FC0A24001F0265 /* AVFoundation.framework */,
+				0838468217FC0A1C001F0265 /* CoreMotion.framework */,
 				08212438178582FD0097AA0F /* Foundation.framework */,
 				0821243A178582FD0097AA0F /* CoreGraphics.framework */,
 				0821243C178582FD0097AA0F /* UIKit.framework */,
@@ -141,17 +275,19 @@
 		0821243E178582FD0097AA0F /* Opportunita */ = {
 			isa = PBXGroup;
 			children = (
+				0806CC6A17FECFEB0063256C /* Opportunita.entitlements */,
+				083846E417FC11A9001F0265 /* ARcommon */,
 				08A3769D178EB40E00E1BD9A /* OppSupport */,
 				08212447178582FD0097AA0F /* OppAppDelegate.h */,
-				08212448178582FD0097AA0F /* OppAppDelegate.m */,
+				08212448178582FD0097AA0F /* OppAppDelegate.mm */,
 				0821244A178582FD0097AA0F /* Main_iPhone.storyboard */,
 				0821244D178582FD0097AA0F /* Main_iPad.storyboard */,
 				08212450178582FD0097AA0F /* OppTimelineView.h */,
-				08212451178582FD0097AA0F /* OppTimelineVIew.m */,
+				08212451178582FD0097AA0F /* OppTimelineVIew.mm */,
 				08A1962D17B49F9D00799B58 /* OppSubjectPostViewController.h */,
 				08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */,
 				08D9EBB917D981F400CB7379 /* OppSettingViewController.h */,
-				08D9EBBA17D981F400CB7379 /* OppSettingViewController.m */,
+				08D9EBBA17D981F400CB7379 /* OppSettingViewController.mm */,
 				08212453178582FE0097AA0F /* Images.xcassets */,
 				0821243F178582FD0097AA0F /* Supporting Files */,
 			);
@@ -162,7 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				08D9EBBF17D98CBA00CB7379 /* UIPopover+iPhone.h */,
-				08D9EBC017D98CBA00CB7379 /* UIPopover+iPhone.m */,
+				08D9EBC017D98CBA00CB7379 /* UIPopover+iPhone.mm */,
 				08212440178582FD0097AA0F /* Opportunita-Info.plist */,
 				08212441178582FD0097AA0F /* InfoPlist.strings */,
 				08212444178582FD0097AA0F /* main.m */,
@@ -189,14 +325,90 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		083846E417FC11A9001F0265 /* ARcommon */ = {
+			isa = PBXGroup;
+			children = (
+				08D5771E17FD682C00C26C47 /* AR_EAGLView.h */,
+				08D5771F17FD682C00C26C47 /* AR_EAGLView.mm */,
+				08D5772017FD682C00C26C47 /* Texture.h */,
+				08D5772117FD682C00C26C47 /* Texture.mm */,
+				083846F117FC1EFD001F0265 /* QCARutils.h */,
+				083846F217FC1EFD001F0265 /* QCARutils.mm */,
+				08D5772A17FD6B5D00C26C47 /* OverlayViewController.h */,
+				08D5772B17FD6B5D00C26C47 /* OverlayViewController.mm */,
+				08D5772D17FD6BBD00C26C47 /* OverlayView.h */,
+				08D5772E17FD6BBD00C26C47 /* OverlayView.mm */,
+				081A94A717FD8EB400EC6512 /* ARViewController.h */,
+				081A94A817FD8EB400EC6512 /* ARViewController.mm */,
+				081A94AA17FD8F5200EC6512 /* ARParentViewController.h */,
+				081A94AB17FD8F5200EC6512 /* ARParentViewController.mm */,
+				0808C23D17FD5828006A0FA0 /* Sharders */,
+			);
+			name = ARcommon;
+			sourceTree = "<group>";
+		};
+		083846F417FC2D51001F0265 /* QCAR */ = {
+			isa = PBXGroup;
+			children = (
+				083846F517FC2D51001F0265 /* Area.h */,
+				083846F617FC2D51001F0265 /* CameraCalibration.h */,
+				083846F717FC2D51001F0265 /* CameraDevice.h */,
+				083846F817FC2D51001F0265 /* CylinderTarget.h */,
+				083846F917FC2D51001F0265 /* CylinderTargetResult.h */,
+				083846FA17FC2D51001F0265 /* DataSet.h */,
+				083846FB17FC2D51001F0265 /* Frame.h */,
+				083846FC17FC2D51001F0265 /* Image.h */,
+				083846FD17FC2D51001F0265 /* ImageTarget.h */,
+				083846FE17FC2D51001F0265 /* ImageTargetBuilder.h */,
+				083846FF17FC2D51001F0265 /* ImageTargetResult.h */,
+				0838470017FC2D51001F0265 /* ImageTracker.h */,
+				0838470117FC2D51001F0265 /* Marker.h */,
+				0838470217FC2D51001F0265 /* MarkerResult.h */,
+				0838470317FC2D51001F0265 /* MarkerTracker.h */,
+				0838470417FC2D51001F0265 /* Matrices.h */,
+				0838470517FC2D51001F0265 /* MultiTarget.h */,
+				0838470617FC2D51001F0265 /* MultiTargetResult.h */,
+				0838470717FC2D51001F0265 /* NonCopyable.h */,
+				0838470817FC2D51001F0265 /* Obb2D.h */,
+				0838470917FC2D51001F0265 /* QCAR.h */,
+				0838470A17FC2D51001F0265 /* QCAR_iOS.h */,
+				0838470B17FC2D51001F0265 /* Rectangle.h */,
+				0838470C17FC2D51001F0265 /* Renderer.h */,
+				0838470D17FC2D51001F0265 /* State.h */,
+				0838470E17FC2D51001F0265 /* System.h */,
+				0838470F17FC2D51001F0265 /* TargetFinder.h */,
+				0838471017FC2D51001F0265 /* TargetSearchResult.h */,
+				0838471117FC2D51001F0265 /* TextTracker.h */,
+				0838471217FC2D51001F0265 /* Tool.h */,
+				0838471317FC2D51001F0265 /* Trackable.h */,
+				0838471417FC2D51001F0265 /* TrackableResult.h */,
+				0838471517FC2D51001F0265 /* TrackableSource.h */,
+				0838471617FC2D51001F0265 /* Tracker.h */,
+				0838471717FC2D51001F0265 /* TrackerManager.h */,
+				0838471817FC2D51001F0265 /* UIGLViewProtocol.h */,
+				0838471917FC2D51001F0265 /* UpdateCallback.h */,
+				0838471A17FC2D51001F0265 /* Vectors.h */,
+				0838471B17FC2D51001F0265 /* VideoBackgroundConfig.h */,
+				0838471C17FC2D51001F0265 /* VideoBackgroundTextureInfo.h */,
+				0838471D17FC2D51001F0265 /* VideoMode.h */,
+				0838471E17FC2D51001F0265 /* VirtualButton.h */,
+				0838471F17FC2D51001F0265 /* VirtualButtonResult.h */,
+				0838472017FC2D51001F0265 /* Word.h */,
+				0838472117FC2D51001F0265 /* WordList.h */,
+				0838472217FC2D51001F0265 /* WordResult.h */,
+			);
+			name = QCAR;
+			path = build/include/QCAR;
+			sourceTree = "<group>";
+		};
 		08A3769D178EB40E00E1BD9A /* OppSupport */ = {
 			isa = PBXGroup;
 			children = (
 				089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */,
 				08A3769E178EB6E100E1BD9A /* SharedData.h */,
-				08A3769F178EB6E100E1BD9A /* SharedData.m */,
+				08A3769F178EB6E100E1BD9A /* SharedData.mm */,
 				089969E517B4E42F00E7B7B7 /* OppTimeLineCell.h */,
-				089969E617B4E42F00E7B7B7 /* OppTimeLineCell.m */,
+				089969E617B4E42F00E7B7B7 /* OppTimeLineCell.mm */,
 				08A37699178EB3BF00E1BD9A /* OppConnection.h */,
 				08A3769A178EB3BF00E1BD9A /* OppConnection.m */,
 				08D9EBB617D72B5F00CB7379 /* OppNoticeViewController.h */,
@@ -285,6 +497,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D5772817FD692900C26C47 /* Shader.fsh in Resources */,
+				08D5772917FD692900C26C47 /* Shader.vsh in Resources */,
 				089969E417B4E0A200E7B7B7 /* TimeLineCell.xib in Resources */,
 				0821244F178582FD0097AA0F /* Main_iPad.storyboard in Resources */,
 				08212454178582FE0097AA0F /* Images.xcassets in Resources */,
@@ -309,16 +523,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08D9EBC117D98CBA00CB7379 /* UIPopover+iPhone.m in Sources */,
-				08A376A0178EB6E100E1BD9A /* SharedData.m in Sources */,
-				08212449178582FD0097AA0F /* OppAppDelegate.m in Sources */,
-				089969E717B4E42F00E7B7B7 /* OppTimeLineCell.m in Sources */,
+				08D9EBC117D98CBA00CB7379 /* UIPopover+iPhone.mm in Sources */,
+				08A376A0178EB6E100E1BD9A /* SharedData.mm in Sources */,
+				08212449178582FD0097AA0F /* OppAppDelegate.mm in Sources */,
+				08D5772317FD682C00C26C47 /* Texture.mm in Sources */,
+				089969E717B4E42F00E7B7B7 /* OppTimeLineCell.mm in Sources */,
+				08D5772F17FD6BBD00C26C47 /* OverlayView.mm in Sources */,
 				08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */,
+				08D5772217FD682C00C26C47 /* AR_EAGLView.mm in Sources */,
+				081A94A617FD8A6000EC6512 /* EAGLView.mm in Sources */,
 				08212445178582FD0097AA0F /* main.m in Sources */,
+				083846F317FC1EFD001F0265 /* QCARutils.mm in Sources */,
 				08D9EBB817D72B5F00CB7379 /* OppNoticeViewController.m in Sources */,
+				08D5772C17FD6B5D00C26C47 /* OverlayViewController.mm in Sources */,
+				081A94A917FD8EB400EC6512 /* ARViewController.mm in Sources */,
+				081A94AC17FD8F5200EC6512 /* ARParentViewController.mm in Sources */,
 				08A1962F17B49F9D00799B58 /* OppSubjectPostViewController.m in Sources */,
-				08212452178582FD0097AA0F /* OppTimelineVIew.m in Sources */,
-				08D9EBBB17D981F400CB7379 /* OppSettingViewController.m in Sources */,
+				08212452178582FD0097AA0F /* OppTimelineVIew.mm in Sources */,
+				08D9EBBB17D981F400CB7379 /* OppSettingViewController.mm in Sources */,
+				0808C24017FD583E006A0FA0 /* ShaderUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,11 +675,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Opportunita/Opportunita.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Opportunita/Opportunita-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					./build/include/,
+				);
 				INFOPLIST_FILE = "Opportunita/Opportunita-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/outcasurad/Desktop/Opportunita/build/lib/arm,
+					./build/lib/arm/,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -468,11 +702,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Opportunita/Opportunita.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Opportunita/Opportunita-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					./build/include/,
+				);
 				INFOPLIST_FILE = "Opportunita/Opportunita-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/outcasurad/Desktop/Opportunita/build/lib/arm,
+					./build/lib/arm/,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

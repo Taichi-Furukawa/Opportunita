@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OppConnection.h"
 #import "OppTimeLineCell.h"
+@class ARParentViewController;
 @interface OppTimelineView : UIViewController<OppDelegate,UITableViewDelegate,UITableViewDataSource,OppCellDelegate,UIPopoverControllerDelegate>{
     NSMutableArray *timeLine;
     NSMutableArray *favLiat_Array;
@@ -19,6 +20,10 @@
     IBOutlet UIBarButtonItem *postSegment;
     IBOutlet UIBarButtonItem *setSegment;
     UIBarButtonItem *mentionBtn;
+    
+    ARParentViewController* arParentViewController;
+    UIWindow *window ;
+    CGRect screenBounds;
 }
 
 @property(retain,nonatomic)IBOutlet UITableView *TimeLineTable;
