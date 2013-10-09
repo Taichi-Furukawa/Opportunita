@@ -7,7 +7,8 @@
 //
 
 #import "OppAppDelegate.h"
-#import "OppTimelineView.h"
+
+@class OppTimelineView;
 
 @implementation OppAppDelegate
 BOOL login;

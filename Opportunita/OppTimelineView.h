@@ -30,5 +30,6 @@
 @property(retain,nonatomic)UIPopoverController *pops;
 @property(copy,nonatomic)ARParentViewController* arParentViewController;
 
+-(void)reloadAction;
 
 @end

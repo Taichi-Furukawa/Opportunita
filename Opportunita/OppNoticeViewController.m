@@ -41,23 +41,25 @@ int countInterval=0;
     SharedData *sh=[SharedData instance];
     NSString *Join_ID=[[NSString alloc]init];
     Join_ID=[deff objectForKey:@"join_list"];
+    
+    
     for (NSDictionary *dic in [sh getDataForKey:@"ar_field"]){
         if ([Join_ID isEqualToString:[dic objectForKey:@"Topics_ID"]]==YES) {
             One_sectionData=dic;
-            SharedData *sh=[SharedData instance];
             NSMutableArray *SubjectS=[NSMutableArray arrayWithArray:[sh getDataForKey:@"timeline"]];
             for (NSDictionary *drect in SubjectS) {
                 if ([Join_ID isEqualToString:[drect objectForKey:@"Topics_ID"]]==YES) {
                     indiCell.detailTextLabel.text=[drect objectForKey:@"Subject"];
-                    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-                    [formatter setDateFormat:@"HH:mm:ss"];
+                    
+                    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+                    [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss '+0000'"];
+                    NSDate *formatterDate = [inputFormatter dateFromString:[One_sectionData objectForKey:@"Meet_limited"]];
                     NSCalendar *calendar = [NSCalendar currentCalendar];
-                    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:[NSDate date]];
-                    float tmp= [[formatter dateFromString:[One_sectionData objectForKey:@"Meet_limited"]] timeIntervalSinceDate:[formatter dateFromString:[NSString stringWithFormat:@"%d:%d:%d",dateComps.hour,dateComps.minute,dateComps.second]]];
-                    int hh = (int)(tmp / 3600);
-                    int mm = (int)((tmp-hh) / 60);
-                    int ss = tmp - (float)(hh*3600+mm*60);
-                    indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",hh,mm,ss];
+                    NSDateComponents *diff = [calendar components:NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:[NSDate date] toDate:formatterDate options:0];
+                    NSInteger h = [diff hour];
+                    NSInteger m = [diff minute];
+                    NSInteger s = [diff second];
+                    indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",h,m,s];
                     [One_section addObject:indiCell];
                 }
             }
@@ -71,18 +73,19 @@ int countInterval=0;
 
 
 -(void)count_Down:(NSTimer*)sender{
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm:ss"];
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+    [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss '+0000'"];
+    NSDate *formatterDate = [inputFormatter dateFromString:[One_sectionData objectForKey:@"Meet_limited"]];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:[NSDate date]];
-    float tmp= [[formatter dateFromString:[One_sectionData objectForKey:@"Meet_limited"]] timeIntervalSinceDate:[formatter dateFromString:[NSString stringWithFormat:@"%d:%d:%d",dateComps.hour,dateComps.minute,dateComps.second]]];
-    int hh = (int)(tmp / 3600);
-    int mm = (int)((tmp-hh) / 60);
-    int ss = tmp - (float)(hh*3600+mm*60);
-    if (hh<0 || mm<0 || ss<0) {
-    indiCell.textLabel.text =[NSString stringWithFormat:@"この話題は解散になりました。"];
+    NSDateComponents *diff = [calendar components:NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:[NSDate date] toDate:formatterDate options:0];
+    NSInteger h = diff.hour;
+    NSInteger m = diff.minute;
+    NSInteger s = diff.second;
+    indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",h,m,s];
+    if (h<=0 && m<=0 &&s<=0) {
+    indiCell.textLabel.text =[NSString stringWithFormat:@"この話題は解散になりました"];
     }else{
-    indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",hh,mm,ss];
+    indiCell.textLabel.text =[NSString stringWithFormat:@"のこり%d時間%d分%d秒",h,m,s];
     }
     
 }
