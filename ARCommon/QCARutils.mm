@@ -15,6 +15,7 @@
 #import <QCAR/ImageTracker.h>
 #import <QCAR/MarkerTracker.h>
 #import <QCAR/VideoBackgroundConfig.h>
+#import "SharedData.h"
 
 static NSString* const DatasetErrorTitle = @"Dataset Error";
 
@@ -484,13 +485,22 @@ QCARutils *qUtils = nil; // singleton class
             else
             {
                 NSLog(@"Successfully got MarkerTracker.");
-                
+#pragma mark markerTracker
                 // Create frame markers:
+                SharedData *sh=[SharedData instance];
+                NSArray *AR_array=[NSArray array];
+                AR_array=[sh getDataForKey:@"ar_field"];
+                for (int i=0;i<[AR_array count]; i++) {
+                    NSString *str=[[NSString alloc]initWithFormat:@"AR_marker%d",i ];
+                    markerTracker->createFrameMarker(i,str.UTF8String, QCAR::Vec2F(50,50));
+                }
+                
                 /*if (!markerTracker->createFrameMarker(0, "MarkerQ", QCAR::Vec2F(50,50)) ||
                     !markerTracker->createFrameMarker(1, "MarkerC", QCAR::Vec2F(50,50)) ||
                     !markerTracker->createFrameMarker(2, "MarkerA", QCAR::Vec2F(50,50)) ||
                     !markerTracker->createFrameMarker(3, "MarkerR", QCAR::Vec2F(50,50)))*/
-                if (!markerTracker->createFrameMarker(0, "1", QCAR::Vec2F(50,50)))
+               // if (!markerTracker->createFrameMarker(0, "1", QCAR::Vec2F(50,50)))
+                if (!markerTracker)
                 {
                     NSLog(@"Failed to create frame markers.");
                 }

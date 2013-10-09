@@ -14,7 +14,7 @@
 #import "Texture.h"
 
 @interface ARViewController ()
-- (void) unloadViewData;
+//- (void) unloadViewData;
 - (void) handleARViewRotation:(UIInterfaceOrientation)interfaceOrientation;
 @end
 
@@ -117,6 +117,7 @@
     NSLog(@"ARVC: viewDidDisappear");
     if (arVisible == YES)
         [qUtils pauseAR];
+    [self unloadViewData];
     
     // Be a good OpenGL ES citizen: ensure all commands have finished executing
     [arView finishOpenGLESCommands];

@@ -16,6 +16,7 @@
 
 #import "ShaderUtils.h"
 #import "object.h"
+#import "SharedData.h"
 
 #define MAKESTRING(x) #x
 
@@ -32,63 +33,18 @@ namespace {
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSNumber *num=[NSNumber numberWithInt:1];
-        [textureList addObject:num];
+        sh=[SharedData instance];
+        AR_array=[NSArray array];
+        AR_array=[sh getDataForKey:@"ar_field"];
+        NSNumber *num;
+        for (int i=0; i<[AR_array count];i++) {
+            num=[NSNumber numberWithInt:i];
+            [textureList addObject:num];
+        }
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-/*
-GLuint LoadString(NSString* String, float Width, float FontSize){
-    GLubyte *imageData = (GLubyte*)malloc(Width*Width*4);
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef bitmapContext = CGBitmapContextCreate(imageData, Width, Width, 8, Width*4, colorSpace, kCGImageAlphaPremultipliedLast); //文字列用のコンテキスト
-    
-    //コンテキストの生成
-    CGContextSetRGBFillColor(bitmapContext, 0.0, 0.0, 0.0, 0.0);
-    CGContextFillRect(bitmapContext, CGRectMake(0, 0, Width, Width));
-    
-    CGContextTranslateCTM(bitmapContext, 0, Width);
-    CGContextScaleCTM(bitmapContext, 1.0, -1.0);
-    
-    UIGraphicsPushContext(bitmapContext);
-    
-    //文字列の描画
-   // UIFont *tFont = [UIFont systemFontOfSize:FontSize];
-    [[UIColor whiteColor] set];
-//    [String drawAtPoint:CGPointMake(0, 0) withFont:tFont];
-    [String drawAtPoint:CGPointMake(0, 0) withAttributes:nil];
-    
-    UIGraphicsPopContext();
-    
-    //イメージを取り出す
-    CGImageRef image  = CGBitmapContextCreateImage(bitmapContext);
-    CFDataRef inputDataRef = CGDataProviderCopyData(CGImageGetDataProvider(image));
-    unsigned char *pixelData = (unsigned char*)CFDataGetBytePtr(inputDataRef);
-    CGContextRelease(bitmapContext);
-    
-    //テクスチャの生成
-    GLuint Texture;
-    glGenTextures(1, &Texture);
-    glBindTexture(GL_TEXTURE_2D, Texture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, CGImageGetWidth(image), CGImageGetHeight(image), 0, GL_BGRA, GL_UNSIGNED_BYTE, pixelData);
-    
-    CGImageRelease(image);
-    CFRelease(inputDataRef);
-    
-    return Texture;
-}
- */
 
 - (void) add3DObjectWith:(int)numVertices ofVertices:(const float *)vertices normals:(const float *)normals texcoords:(const float *)texCoords with:(int)numIndices ofIndices:(const unsigned short *)indices usingTextureIndex:(NSInteger)textureIndex
 {
@@ -110,7 +66,11 @@ GLuint LoadString(NSString* String, float Width, float FontSize){
 
 - (void)setup3dObjects
 {
-    [self add3DObjectWith:NUM_OBJECT_VERTEX ofVertices:objectVertices normals:objectNormals texcoords:objectTexCoords with:NUM_OBJECT_INDEX ofIndices:objectIndices usingTextureIndex:0];
+    
+    for (int i=0;i<[AR_array count]; i++) {
+    [self add3DObjectWith:NUM_OBJECT_VERTEX ofVertices:objectVertices normals:objectNormals texcoords:objectTexCoords with:NUM_OBJECT_INDEX ofIndices:objectIndices usingTextureIndex:i];
+        
+    }
 }
 
 - (void)renderFrameQCAR

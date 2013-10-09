@@ -28,5 +28,6 @@
 
 - (void) handleARViewRotation:(UIInterfaceOrientation)interfaceOrientation;
 - (void)freeOpenGLESResources;
+- (void) unloadViewData;
 
 @end

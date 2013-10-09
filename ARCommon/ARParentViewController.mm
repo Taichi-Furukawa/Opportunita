@@ -29,6 +29,14 @@
     
     return self;
 }
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        
+    }
+    [super viewWillDisappear:animated];
+}
+
 - (void)loadView
 {
     NSLog(@"ARParentVC: creating");

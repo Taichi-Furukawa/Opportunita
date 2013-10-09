@@ -12,7 +12,7 @@
 
 @interface ARParentViewController : UIViewController {
     OverlayViewController* overlayViewController; // for the overlay view (buttons and action sheets)
-    ARViewController* arViewController; // for the Augmented Reality view
+    // for the Augmented Reality view
     UIImageView* parentView; // a container view to allow use in tabbed views etc.
     
     CGRect arViewRect; // the size of the AR view
@@ -20,6 +20,7 @@
     // Splash view
     UIImageView* splashView;
     UIWindow* appWindow;
+    ARViewController* arViewController;
 }
 
 @property (nonatomic) CGRect arViewRect;

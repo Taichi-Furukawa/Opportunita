@@ -21,7 +21,6 @@
     IBOutlet UIBarButtonItem *setSegment;
     UIBarButtonItem *mentionBtn;
     
-    ARParentViewController* arParentViewController;
     UIWindow *window ;
     CGRect screenBounds;
 }
@@ -29,5 +28,7 @@
 @property(retain,nonatomic)IBOutlet UITableView *TimeLineTable;
 @property(retain,nonatomic)UIRefreshControl* refreshControl;
 @property(retain,nonatomic)UIPopoverController *pops;
+@property(copy,nonatomic)ARParentViewController* arParentViewController;
+
 
 @end

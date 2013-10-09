@@ -7,7 +7,11 @@
 //
 
 #import "AR_EAGLView.h"
+#import "SharedData.h"
 
-@interface EAGLView : AR_EAGLView
+@interface EAGLView : AR_EAGLView{
+    SharedData *sh;
+    NSArray *AR_array;
+}
 
 @end

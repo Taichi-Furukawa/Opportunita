@@ -45,7 +45,12 @@
         uiImage =[self imageWithColor:[UIColor whiteColor]];
     }else if (filename==3){
         uiImage =[self imageWithColor:[UIColor greenColor]];
-        
+    }else if (filename==4){
+                uiImage =[self imageWithColor:[UIColor orangeColor]];
+    }else if (filename==5){
+                uiImage =[self imageWithColor:[UIColor grayColor]];
+    }else if (filename==6){
+                uiImage =[self imageWithColor:[UIColor yellowColor]];
     }
     if (uiImage) {
         // Get the inner CGImage from the UIImage wrapper

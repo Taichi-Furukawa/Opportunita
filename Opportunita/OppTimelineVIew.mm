@@ -16,7 +16,7 @@
 @end
 
 @implementation OppTimelineView
-@synthesize TimeLineTable,refreshControl,pops;
+@synthesize TimeLineTable,refreshControl,pops,arParentViewController;
 
 - (void)viewDidLoad
 {
@@ -38,16 +38,17 @@
     //[self reloadAction];
     screenBounds = [[UIScreen mainScreen] bounds];
     window = [[UIWindow alloc] initWithFrame: screenBounds];
-    arParentViewController = [[ARParentViewController alloc] initWithWindow:window];
     arParentViewController.arViewRect = screenBounds;
-
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [self reloadAction];
+    if (animated==YES) {
+        NSLog(@"nil");
+        arParentViewController=nil;
+    }
+    
 }
-
-
 -(void)reloadAction{
     
     NSUserDefaults *Deff=[NSUserDefaults standardUserDefaults];
@@ -206,7 +207,10 @@
 
 -(IBAction)parent_AR_View:(id)sender{
     [QCARutils getInstance].targetType = TYPE_FRAMEMARKERS;
-    
+    if (!arParentViewController) {
+        NSLog(@"allock");
+        arParentViewController = [[ARParentViewController alloc] initWithWindow:window];
+    }
     [self.navigationController pushViewController:arParentViewController animated:YES];
 }
 

@@ -24,7 +24,7 @@ BOOL login;
     }
     
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if(userInfo){//push
+    if(userInfo){
         NSLog(@"%@",userInfo);
         NSLog(@"app launch with push");
     }
