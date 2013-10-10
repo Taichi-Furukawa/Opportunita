@@ -27,7 +27,7 @@
 -(void)get_Jointable;
 -(void)get_Waitcolumn;
 -(void)get_ARfield;
--(void)logOut;
+-(void)logOut:(NSString*)User_ID;
 -(void)send_Subject:(NSString*)IncertSubject MyUserID:(NSString*)user_ID;
 -(void)favorite_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID;
 -(void)join_Topics:(NSString*)Topics_ID MyUserID:(NSString*)user_ID;

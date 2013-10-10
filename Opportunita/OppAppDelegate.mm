@@ -14,15 +14,8 @@
 BOOL login;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    NSUserDefaults *user_def = [NSUserDefaults standardUserDefaults];
-    login=[user_def boolForKey:@"LoginState"];
-    if (login==NO) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound| UIRemoteNotificationTypeAlert)];
-    }else{
-        NSLog(@"%@",[user_def stringForKey:@"My_usser_ID"]);
-    }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound| UIRemoteNotificationTypeAlert)];
     
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(userInfo){
@@ -44,35 +37,9 @@ BOOL login;
                        stringByReplacingOccurrencesOfString: @" " withString: @""];
     NSLog(@"deletoken=%@",Token);
     
-    OppConnection *loginConnection=[OppConnection instance];
-    loginConnection.delegate=self;
-    [loginConnection login_and_DeviceToken:Token];
-    
-    
-}
-
--(void)ReceiveData:(NSString *)responce Method:(NSString *)method_name{
-    if([responce isEqualToString:@"cantlogin"]==YES){
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"エラー発生"
-                                  message:@"サーバー管理者に問い合わせて下さい" delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil
-                                  ];
-        [alertView show];
-
-    }else{
-        NSUserDefaults *user_def = [NSUserDefaults standardUserDefaults];
-        [user_def setObject:responce forKey:@"My_user_ID"];
-        [user_def setBool:YES forKey:@"LoginState"];
-        
-        /*
-        UIStoryboard *storyboard = [[[self window]rootViewController]storyboard];
-        OppTimelineView *segu =[[OppTimelineView alloc]init];
-        segu=[storyboard instantiateViewControllerWithIdentifier:@"TimelineView"];
-        self.window.rootViewController=segu;
-         */
-    }
+    NSUserDefaults *deff=[NSUserDefaults standardUserDefaults];
+    [deff setObject:Token forKey:@"device_token"];
+    [deff synchronize];
     
 }
 

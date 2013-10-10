@@ -368,7 +368,6 @@
     
     // Generate the OpenGL texture objects
     for (int i = 0; i < [textures count]; ++i) {
-        NSLog(@"hello %d",i);
         
         GLuint nID;
         

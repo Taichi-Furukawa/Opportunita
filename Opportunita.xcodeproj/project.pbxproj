@@ -40,6 +40,8 @@
 		089969E417B4E0A200E7B7B7 /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */; };
 		089969E717B4E42F00E7B7B7 /* OppTimeLineCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 089969E617B4E42F00E7B7B7 /* OppTimeLineCell.mm */; };
 		08A1962F17B49F9D00799B58 /* OppSubjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */; };
+		08A27B0E1805718F008CE77F /* OppFrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A27B0D1805718F008CE77F /* OppFrontViewController.m */; };
+		08A27B1118057E16008CE77F /* OppFrontNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A27B1018057E16008CE77F /* OppFrontNavigation.m */; };
 		08A3769B178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
 		08A3769C178EB3BF00E1BD9A /* OppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769A178EB3BF00E1BD9A /* OppConnection.m */; };
 		08A376A0178EB6E100E1BD9A /* SharedData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08A3769F178EB6E100E1BD9A /* SharedData.mm */; };
@@ -158,6 +160,10 @@
 		089969E617B4E42F00E7B7B7 /* OppTimeLineCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OppTimeLineCell.mm; sourceTree = "<group>"; };
 		08A1962D17B49F9D00799B58 /* OppSubjectPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppSubjectPostViewController.h; sourceTree = "<group>"; };
 		08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = OppSubjectPostViewController.m; sourceTree = "<group>"; };
+		08A27B0C1805718F008CE77F /* OppFrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppFrontViewController.h; sourceTree = "<group>"; };
+		08A27B0D1805718F008CE77F /* OppFrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppFrontViewController.m; sourceTree = "<group>"; };
+		08A27B0F18057E16008CE77F /* OppFrontNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppFrontNavigation.h; sourceTree = "<group>"; };
+		08A27B1018057E16008CE77F /* OppFrontNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppFrontNavigation.m; sourceTree = "<group>"; };
 		08A37699178EB3BF00E1BD9A /* OppConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppConnection.h; sourceTree = "<group>"; };
 		08A3769A178EB3BF00E1BD9A /* OppConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppConnection.m; sourceTree = "<group>"; };
 		08A3769E178EB6E100E1BD9A /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
@@ -280,6 +286,8 @@
 				08A3769D178EB40E00E1BD9A /* OppSupport */,
 				08212447178582FD0097AA0F /* OppAppDelegate.h */,
 				08212448178582FD0097AA0F /* OppAppDelegate.mm */,
+				08A27B0C1805718F008CE77F /* OppFrontViewController.h */,
+				08A27B0D1805718F008CE77F /* OppFrontViewController.m */,
 				0821244A178582FD0097AA0F /* Main_iPhone.storyboard */,
 				0821244D178582FD0097AA0F /* Main_iPad.storyboard */,
 				08212450178582FD0097AA0F /* OppTimelineView.h */,
@@ -288,6 +296,8 @@
 				08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */,
 				08D9EBB917D981F400CB7379 /* OppSettingViewController.h */,
 				08D9EBBA17D981F400CB7379 /* OppSettingViewController.mm */,
+				08A27B0F18057E16008CE77F /* OppFrontNavigation.h */,
+				08A27B1018057E16008CE77F /* OppFrontNavigation.m */,
 				08212453178582FE0097AA0F /* Images.xcassets */,
 				0821243F178582FD0097AA0F /* Supporting Files */,
 			);
@@ -533,9 +543,11 @@
 				08D5772217FD682C00C26C47 /* AR_EAGLView.mm in Sources */,
 				081A94A617FD8A6000EC6512 /* EAGLView.mm in Sources */,
 				08212445178582FD0097AA0F /* main.m in Sources */,
+				08A27B0E1805718F008CE77F /* OppFrontViewController.m in Sources */,
 				083846F317FC1EFD001F0265 /* QCARutils.mm in Sources */,
 				08D9EBB817D72B5F00CB7379 /* OppNoticeViewController.m in Sources */,
 				08D5772C17FD6B5D00C26C47 /* OverlayViewController.mm in Sources */,
+				08A27B1118057E16008CE77F /* OppFrontNavigation.m in Sources */,
 				081A94A917FD8EB400EC6512 /* ARViewController.mm in Sources */,
 				081A94AC17FD8F5200EC6512 /* ARParentViewController.mm in Sources */,
 				08A1962F17B49F9D00799B58 /* OppSubjectPostViewController.m in Sources */,

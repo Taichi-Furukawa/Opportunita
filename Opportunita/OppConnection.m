@@ -170,8 +170,19 @@ BOOL login;
 }
 
 
--(void)logOut{
-    
+-(void)logOut:(NSString*)User_ID{
+    Method_name=@"logout";
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSString *loginStr=[NSString stringWithFormat:@"disposal=logout&User_ID=%@",User_ID];
+    NSURL *url=[NSURL URLWithString:@"http://opp.sp2lc.salesio-sp.ac.jp/login.php"];
+    request=[[NSMutableURLRequest alloc]initWithURL:url];
+    [request setTimeoutInterval:20];
+    request.HTTPMethod=@"POST";
+    request.HTTPBody=[loginStr dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPShouldHandleCookies:YES];
+    connect=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+
 }
 
 -(void)connection:(NSURLConnection *)conn didReceiveResponse:(NSURLResponse *)res{

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OppConnection.h"
 
-@interface OppSettingViewController : UIViewController
+@interface OppSettingViewController : UIViewController<OppDelegate>{
+    
+}
 
 @end
