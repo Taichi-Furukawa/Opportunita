@@ -187,13 +187,7 @@ BOOL login;
 
 -(void)connection:(NSURLConnection *)conn didReceiveResponse:(NSURLResponse *)res{
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
-    /*
-    NSLog(@"expectedContentLength:%lld",[res expectedContentLength]);
-    NSLog(@"MIMEType:%@",[res MIMEType]);
-    NSLog(@"suggestedFilename:%@",[res suggestedFilename]);
-    NSLog(@"textEncodingName:%@",[res textEncodingName]);
-    NSLog(@"URL:%@",[res URL]);
-     */
+
 }
 
 -(void)connection:( NSURLConnection *) connections didReceiveData:( NSData *) resdata{

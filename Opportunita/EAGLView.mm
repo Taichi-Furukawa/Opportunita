@@ -55,8 +55,8 @@ namespace {
     obj3D.normals = normals;
     obj3D.texCoords = texCoords;
     
-    obj3D.numIndices = numIndices;
-    obj3D.indices = indices;
+   // obj3D.numIndices = numIndices;
+   // obj3D.indices = indices;
     
     obj3D.texture = [textures objectAtIndex:textureIndex];
     
@@ -68,7 +68,7 @@ namespace {
 {
     
     for (int i=0;i<[AR_array count]; i++) {
-    [self add3DObjectWith:NUM_OBJECT_VERTEX ofVertices:objectVertices normals:objectNormals texcoords:objectTexCoords with:NUM_OBJECT_INDEX ofIndices:objectIndices usingTextureIndex:i];
+    [self add3DObjectWith:objectNumVerts ofVertices:objectVerts normals:objectNomals texcoords:objectTexCoords with:nil ofIndices:nil usingTextureIndex:i];
         
     }
 }
@@ -134,8 +134,8 @@ namespace {
             glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
             glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (GLfloat*)&modelViewProjection.data[0]);
             glUniform1i(texSampler2DHandle, 0 /*GL_TEXTURE0*/);
-            glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, obj3D.indices);
-            
+            //glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, obj3D.indices);
+            glDrawArrays(GL_TRIANGLES, 0, obj3D.numVertices);
             ShaderUtils::checkGlError("FrameMarkers renderFrameQCAR");
         }
         

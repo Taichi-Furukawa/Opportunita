@@ -37,6 +37,7 @@
 		0838469117FC0A62001F0265 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838469017FC0A62001F0265 /* OpenGLES.framework */; };
 		0838469317FC0A8B001F0265 /* libQCAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0838469217FC0A8B001F0265 /* libQCAR.a */; };
 		083846F317FC1EFD001F0265 /* QCARutils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 083846F217FC1EFD001F0265 /* QCARutils.mm */; };
+		089902BF1806A7930064C8A0 /* tomatoColor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 089902BE1806A7930064C8A0 /* tomatoColor.jpg */; };
 		089969E417B4E0A200E7B7B7 /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */; };
 		089969E717B4E42F00E7B7B7 /* OppTimeLineCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 089969E617B4E42F00E7B7B7 /* OppTimeLineCell.mm */; };
 		08A1962F17B49F9D00799B58 /* OppSubjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A1962E17B49F9D00799B58 /* OppSubjectPostViewController.m */; };
@@ -155,6 +156,7 @@
 		0838472017FC2D51001F0265 /* Word.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Word.h; sourceTree = "<group>"; };
 		0838472117FC2D51001F0265 /* WordList.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = WordList.h; sourceTree = "<group>"; };
 		0838472217FC2D51001F0265 /* WordResult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = WordResult.h; sourceTree = "<group>"; };
+		089902BE1806A7930064C8A0 /* tomatoColor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tomatoColor.jpg; sourceTree = "<group>"; };
 		089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineCell.xib; sourceTree = "<group>"; };
 		089969E517B4E42F00E7B7B7 /* OppTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppTimeLineCell.h; sourceTree = "<group>"; };
 		089969E617B4E42F00E7B7B7 /* OppTimeLineCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OppTimeLineCell.mm; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 		08A3769D178EB40E00E1BD9A /* OppSupport */ = {
 			isa = PBXGroup;
 			children = (
+				089902BE1806A7930064C8A0 /* tomatoColor.jpg */,
 				089969E317B4E0A200E7B7B7 /* TimeLineCell.xib */,
 				08A3769E178EB6E100E1BD9A /* SharedData.h */,
 				08A3769F178EB6E100E1BD9A /* SharedData.mm */,
@@ -515,6 +518,7 @@
 				0821244C178582FD0097AA0F /* Main_iPhone.storyboard in Resources */,
 				08212443178582FD0097AA0F /* InfoPlist.strings in Resources */,
 				08F3B3B517CC96BD000BD252 /* Default-568h@2x.png in Resources */,
+				089902BF1806A7930064C8A0 /* tomatoColor.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

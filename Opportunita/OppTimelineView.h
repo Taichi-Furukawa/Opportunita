@@ -23,6 +23,7 @@
     
     UIWindow *window ;
     CGRect screenBounds;
+    IBOutlet UIButton *AR_segue;
 }
 
 @property(retain,nonatomic)IBOutlet UITableView *TimeLineTable;

@@ -28,15 +28,14 @@
 }
 
 - (void)favorite:(UIButton*)fav{
-//    [delegate cellAction:@"fav"];
     NSUserDefaults *favList=[NSUserDefaults standardUserDefaults];
     NSMutableArray *favArray=[NSMutableArray arrayWithArray:[favList objectForKey:@"fav_list"]];
     
-  //  NSLog(@"ID=%@",topicsID);
     OppConnection *FavTopics=[[OppConnection alloc]init];
     FavTopics.delegate=self;
     [FavTopics favorite_Topics:topicsID MyUserID:MyUserID];
     [favbutton setEnabled:NO];
+     [favbutton setTitleColor:RGB(255, 99, 71) forState:UIControlStateDisabled];
     
     [favArray addObject:topicsID];
     [favList setObject:[favArray copy] forKey:@"fav_list"];
@@ -45,20 +44,18 @@
 - (void)join:(UIButton*)join{
     NSUserDefaults *joinList=[NSUserDefaults standardUserDefaults];
     NSString *joinTopic=[joinList stringForKey:@"join_list"];
-//    NSMutableArray *JoinArray=[NSMutableArray arrayWithArray:[joinList objectForKey:@"join_list"]];
-    join.enabled=NO;
+    [join setEnabled:NO];
         if([joinTopic isEqualToString:self.topicsID]==NO){
             OppConnection *JoinTopics=[[OppConnection alloc]init];
             JoinTopics.delegate=self;
             [JoinTopics join_Topics:topicsID MyUserID:MyUserID];
-            [Joinbutton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [Joinbutton setTitleColor:RGB(255, 99, 71) forState:UIControlStateNormal];
             joinTopic=topicsID;
             [joinList setObject:joinTopic forKey:@"join_list"];
         }else{
             OppConnection *leave_JoinTopics=[[OppConnection alloc]init];
             leave_JoinTopics.delegate=self;
             [leave_JoinTopics leave_join_topics:topicsID MyUserID:MyUserID];
-            [Joinbutton setTitleColor:[UIColor colorWithRed:0.200 green:0.600 blue:1.00 alpha:1] forState:UIControlStateNormal];
             joinTopic=@"";
             [joinList setObject:joinTopic forKey:@"join_list"];
         }
@@ -70,7 +67,7 @@
     if ([responce isEqualToString:@"ok"]==YES && [method_name isEqualToString:@"Fav"]==YES) {
         
     }else if ([responce isEqualToString:@"ok"]==YES && [method_name isEqualToString:@"Join"]==YES){
-        Joinbutton.enabled=YES;
+        [Joinbutton setEnabled:YES];
     [delegate cellAction:@"action"];
     }
 }

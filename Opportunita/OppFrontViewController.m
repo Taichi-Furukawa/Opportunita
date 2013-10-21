@@ -33,14 +33,11 @@
     NSUserDefaults *userdeff=[NSUserDefaults standardUserDefaults];
     NSString *loginStr=[userdeff stringForKey:@"My_user_ID"];
     [login_btn addTarget:self action:@selector(login_action:) forControlEvents:UIControlEventTouchUpInside];
-    NSLog(@"login = %@",loginStr);
     if (!loginStr) {
-        NSLog(@"ログインしてない");
         countdown=[[NSTimer alloc]init];
         countdown=[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(count_Down:) userInfo:nil repeats:YES];
         
     }else{
-        NSLog(@"ログイン中");
         OppFrontNavigation *View=[[OppFrontNavigation alloc]init];
         View=[self.storyboard instantiateViewControllerWithIdentifier:@"FrontNavigation"];
         [self presentViewController:View animated:YES completion:nil];
@@ -73,11 +70,9 @@
         
     }else{
         NSUserDefaults *user_def = [NSUserDefaults standardUserDefaults];
-        NSLog(@"getID=%@",responce);
         [user_def setObject:responce forKey:@"My_user_ID"];
         [user_def setBool:YES forKey:@"LoginState"];
         [user_def synchronize];
-        NSLog(@"login");
         OppFrontNavigation *View=[[OppFrontNavigation alloc]init];
         View=[self.storyboard instantiateViewControllerWithIdentifier:@"FrontNavigation"];
         [self presentViewController:View animated:YES completion:nil];
@@ -87,7 +82,6 @@
 }
 
 -(void)login_action:(id)sender{
-    NSLog(@"loginAction");
     OppConnection *session=[[OppConnection alloc]init];
     session.delegate=self;
     [session login_and_DeviceToken:dev_token];

@@ -27,7 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    InsertText=[[UITextView alloc]init];
     InsertText.editable=YES;
     InsertText.delegate=self;
 	// Do any additional setup after loading the view.
@@ -38,7 +37,6 @@
 }
 
 -(IBAction)PostBtn:(id)sender{
-    NSLog(@"post!");
     if ([InsertText hasText]==NO) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"何も入力されていません"message:@"送れません" delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
         [alertView show];

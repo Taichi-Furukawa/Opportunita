@@ -44,7 +44,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     [self reloadAction];
     if (animated==YES) {
-        NSLog(@"nil");
         arParentViewController=nil;
     }
     
@@ -82,7 +81,6 @@
         NSLog(@"notfound");
     }else{
     responce=[responce substringWithRange:NSMakeRange(rangeTest.location, [responce length]-rangeTest.location)];
-        NSLog(@"lineresponce = %@",responce);
     NSArray *jsonTimeLine=[[NSArray alloc]init];
     jsonTimeLine=[NSArray array];
     jsonTimeLine=[self jSON_to_Array:responce];
@@ -118,7 +116,6 @@
     }else{
     responce=[responce substringWithRange:NSMakeRange(rangeTest.location, [responce length]-rangeTest.location)];
     
-    NSLog(@"Waitresponce = %@",responce);
     NSArray *jsonTimeLine=[[NSArray alloc]init];
     jsonTimeLine=[NSArray array];
     jsonTimeLine=[self jSON_to_Array:responce];
@@ -132,13 +129,11 @@
 }
 -(void)receiveAR_field:(NSString *)responce{//ARのや
     NSRange rangeTest = [responce rangeOfString:@"["];
-    NSLog(@"range=%d--%d",rangeTest.location,rangeTest.length);
     if (rangeTest.location==NSNotFound) {
         NSLog(@"notfound");
     }else{
     
     responce=[responce substringWithRange:NSMakeRange(rangeTest.location, [responce length]-rangeTest.location)];
-        NSLog(@"ARresponce = %@",responce);
     NSArray *jsonTimeLine=[[NSArray alloc]init];
     jsonTimeLine=[NSArray array];
     jsonTimeLine=[self jSON_to_Array:responce];
@@ -173,6 +168,7 @@
     
     if ([wait_column containsObject:Cell.topicsID]==YES || [ar_table containsObject:Cell.topicsID]==YES) {
         [Cell.favbutton setEnabled:NO];
+        [Cell.favbutton setTitleColor:RGB(255, 99, 71) forState:UIControlStateDisabled];
         [Cell.Joinbutton setEnabled:YES];
     }else{
         [Cell.favbutton setEnabled:YES];
@@ -181,9 +177,10 @@
     
     if ([favLiat_Array containsObject:Cell.topicsID]==YES) {
         [Cell.favbutton setEnabled:NO];
+        [Cell.favbutton setTitleColor:RGB(255, 99, 71) forState:UIControlStateDisabled];
     }
     if([joinTopic isEqualToString:Cell.topicsID]==YES){
-        [Cell.Joinbutton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [Cell.Joinbutton setTitleColor:RGB(255, 99, 71) forState:UIControlStateNormal];
     }
     return Cell;
 }
@@ -191,6 +188,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 111.0;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
 }
 
 
@@ -201,6 +202,7 @@
 }
 
 -(void)cellAction:(NSString *)actionName{//cell上のボタンが押されたときなどに呼び出される
+    [TimeLineTable reloadData];
     [self reloadAction];
     NSLog(@"%@",actionName);
 }
